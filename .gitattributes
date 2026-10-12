@@ -1,0 +1,5 @@
+gradlew      text eol=lf
+*.bat        text eol=crlf
+*.jar        binary
+# generated client: collapsed in GitHub diffs, excluded from language statistics
+generated/** linguist-generated=true

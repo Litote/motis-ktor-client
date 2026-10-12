@@ -1,0 +1,62 @@
+package org.litote.motis.client.client
+
+import io.ktor.client.HttpClient
+import io.ktor.client.HttpClientConfig
+import io.ktor.client.engine.HttpClientEngineFactory
+import io.ktor.client.plugins.UserAgent
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.client.plugins.defaultRequest
+import io.ktor.client.plugins.logging.LogLevel
+import io.ktor.client.plugins.logging.Logging
+import io.ktor.serialization.kotlinx.json.json
+import kotlin.String
+import kotlin.Throwable
+import kotlin.Unit
+import kotlinx.serialization.json.Json
+
+public class ClientConfiguration(
+  public val baseUrl: String = "https://api.transitous.org/",
+  public val logLevel: LogLevel = LogLevel.HEADERS,
+  public val userAgent:
+      String? = "motis-ktor-client (+https://github.com/Litote/motis-ktor-client)",
+  public val engine: HttpClientEngineFactory<*>? = null,
+  public val json: Json = Json { 
+      ignoreUnknownKeys = true
+      coerceInputValues = true
+       },
+  public val httpClientAuthorization: HttpClientConfig<*>.() -> Unit = {},
+  public val httpClientConfig:
+      HttpClientConfig<*>.() -> Unit = defaultHttpClientConfig(baseUrl, json, logLevel, userAgent, httpClientAuthorization),
+  public val client:
+      HttpClient = engine?.let { HttpClient(it) { httpClientConfig() } } ?: HttpClient { httpClientConfig() },
+  public val exceptionLogger: Throwable.() -> Unit = { printStackTrace() },
+) {
+  public companion object {
+    public val defaultClientConfiguration: ClientConfiguration by lazy { ClientConfiguration() }
+
+    public fun defaultHttpClientConfig(
+      baseUrl: String,
+      json: Json,
+      logLevel: LogLevel,
+      userAgent: String? = null,
+      httpClientAuthorization: HttpClientConfig<*>.() -> Unit,
+    ): HttpClientConfig<*>.() -> Unit = {
+      install(Logging) {
+        level = logLevel
+      }
+      install(ContentNegotiation) {
+        json(json)
+      }
+      defaultRequest {
+        url(baseUrl)
+      }
+      if (userAgent != null) {
+        install(UserAgent) {
+          agent = userAgent
+        }
+      }
+      httpClientAuthorization()
+    }
+
+  }
+}
