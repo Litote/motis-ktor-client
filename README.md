@@ -132,62 +132,7 @@ do not break deserialization.
 
 ## Development
 
-```bash
-./gradlew build                  # generates the client, compiles all targets, runs tests
-./gradlew generateMotis          # regenerates the client only (generated/motis)
-./gradlew publishToMavenLocal    # publishes all targets to ~/.m2
-```
-
-### Quality
-
-The CI analyses the project with [SonarCloud](https://sonarcloud.io/summary/new_code?id=Litote_motis-ktor-client)
-(`SONAR_TOKEN` secret). To run the analysis locally, set `systemProp.sonar.token=<token>` in `~/.gradle/gradle.properties`:
-
-```bash
-./gradlew check jacocoAggregatedReport sonar sonarCheck
-```
-
-`sonarCheck` fails if the quality gate is not OK, or if any issue or security hotspot remains.
-
-The public API is recorded in `api/` (Kotlin ABI validation): `check` fails if it changes.
-After an intended API change, regenerate the dump with `./gradlew updateKotlinAbi` and commit it;
-a breaking change requires a `feat!:` commit.
-
-Dependencies are verified with `gradle/verification-metadata.xml`. After a dependency change
-(`gradle/libs.versions.toml`, Gradle wrapper), regenerate it with `./gradlew updateVerificationMetadata`.
-
-The generated client is versioned in `generated/motis`, so that its evolutions can be reviewed. It is regenerated
-from the OpenAPI specification at each build, and the CI fails if the committed version is not up to date.
-To update the API, replace `src/commonMain/openapi/motis.yaml` with a newer MOTIS specification, run the build
-and commit the changes of `generated/`. Do not edit `generated/` by hand: the build overwrites it.
-
-The generator version (`generator` in `gradle/libs.versions.toml`) also selects its published version catalog
-(`openapi`), which provides the Kotlin, Ktor, kotlinx-serialization and coroutines versions.
-
-### Tests
-
-The tests in `src/commonTest` run on every target against a mocked Transitous API (Ktor `MockEngine`):
-no network access is required. Apple targets tests require a macOS host.
-
-```bash
-./gradlew check                  # all targets available on the host
-```
-
-The integration tests in `src/jvmIntegrationTest` call the public Transitous API: they require network access,
-depend on the Transitous timetable data and are not run by `check`.
-
-```bash
-./gradlew jvmIntegrationTest
-```
-
-### Release
-
-Releases are managed by [release-please](https://github.com/googleapis/release-please) from
-[Conventional Commits](https://www.conventionalcommits.org/) (see [CONTRIBUTING.md](CONTRIBUTING.md)):
-each push on `main` updates a release PR, and merging it creates the tag and the GitHub release, publishes all targets
-to Maven Central and the KDoc to [GitHub Pages](https://litote.github.io/motis-ktor-client/).
-
-A `main-SNAPSHOT` version is published to Maven Central every Monday (`publish-snapshot.yml`, also runnable manually).
+See [CONTRIBUTING.md](CONTRIBUTING.md) to build, test and release the project.
 
 ## License
 
