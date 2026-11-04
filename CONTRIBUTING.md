@@ -83,10 +83,10 @@ The CI analyses the project with [SonarCloud](https://sonarcloud.io/summary/new_
 (`SONAR_TOKEN` secret). Run the same analysis locally:
 
 ```bash
-./gradlew check jacocoAggregatedReport sonar sonarCheck
+./gradlew check jacocoAggregatedReport sonar
 ```
 
-`sonarCheck` must pass (gate OK, 0 issues, 0 hotspots). It requires `systemProp.sonar.token` in
+`sonar` must pass: it fails if the quality gate is not OK. It requires `systemProp.sonar.token` in
 `~/.gradle/gradle.properties`; without a token, let the CI run the analysis.
 
 The public API is recorded in `api/` (Kotlin ABI validation): `check` fails if it changes.
