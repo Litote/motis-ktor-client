@@ -13,9 +13,9 @@ After modifying code — Kotlin sources, Gradle build scripts, the OpenAPI speci
 before considering the task done:
 
 ```bash
-./gradlew check jacocoAggregatedReport sonar sonarCheck
+./gradlew check jacocoAggregatedReport sonar
 ```
 
-The CI fails on the same `sonarCheck` (quality gate OK, 0 issues, 0 hotspots), so an issue left locally
+The CI fails on the same quality gate, which `sonar` waits for, so an issue left locally
 blocks the push. The token comes from `systemProp.sonar.token` in `~/.gradle/gradle.properties`; if it is
 missing, say so instead of skipping the check silently. Use the SonarQube MCP tools to read the issue details.
