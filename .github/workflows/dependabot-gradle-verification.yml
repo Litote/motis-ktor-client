@@ -21,6 +21,7 @@ jobs:
         with:
           app-id: ${{ secrets.RELEASE_PLEASE_APP_ID }}
           private-key: ${{ secrets.RELEASE_PLEASE_APP_PRIVATE_KEY }}
+          repositories: ${{ github.event.repository.name }}
           permission-contents: write
 
       # Checkout the base branch (trusted code, the pull_request_target default) to avoid executing
