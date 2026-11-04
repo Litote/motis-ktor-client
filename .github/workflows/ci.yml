@@ -20,7 +20,7 @@ jobs:
   check:
     permissions:
       contents: read
-    uses: Litote/ci/.github/workflows/gradle-check.yml@59e101952a0820ea57b7d4351622eab579bacf5f # ci/gradle-check
+    uses: Litote/ci/.github/workflows/gradle-check.yml@fbeb51096c741360965275ed62a9011598259013 # v0.2.0
     with:
       check-name: Check (JVM / JS / Linux)
       jvm-args: -Xmx3g -Dfile.encoding=UTF-8
