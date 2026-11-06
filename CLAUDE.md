@@ -13,7 +13,7 @@ After modifying code — Kotlin sources, Gradle build scripts, the OpenAPI speci
 before considering the task done:
 
 ```bash
-./gradlew check jacocoAggregatedReport sonar
+./gradlew check jacocoAggregatedReport sonar -Dsonar.branch.name=$(git branch --show-current)
 ```
 
 The CI fails on the same quality gate, which `sonar` waits for, so an issue left locally
