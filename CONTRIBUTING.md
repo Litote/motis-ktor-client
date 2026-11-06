@@ -83,7 +83,7 @@ The CI analyses the project with [SonarCloud](https://sonarcloud.io/summary/new_
 (`SONAR_TOKEN` secret). Run the same analysis locally:
 
 ```bash
-./gradlew check jacocoAggregatedReport sonar
+./gradlew check jacocoAggregatedReport sonar -Dsonar.branch.name=$(git branch --show-current)
 ```
 
 `sonar` must pass: it fails if the quality gate is not OK. It requires `systemProp.sonar.token` in
