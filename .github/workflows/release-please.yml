@@ -28,7 +28,7 @@ jobs:
       release_created: ${{ steps.release-please.outputs.release_created }}
       tag_name: ${{ steps.release-please.outputs.tag_name }}
     steps:
-      - uses: Litote/ci/.github/actions/release-please@c111317515db0963d8dfebb7821cefbc92d34897 # v0.9.0
+      - uses: Litote/ci/.github/actions/release-please@510461dc1f569a7c12735a6cad12e88a6cb533ad # v0.10.0
         id: release-please
         if: github.event_name == 'push'
         with:
@@ -51,11 +51,11 @@ jobs:
           ref: refs/tags/${{ needs.release-please.outputs.tag_name || inputs.tag }}
           fetch-depth: 0
 
-      - uses: Litote/ci/.github/actions/setup-gradle@c111317515db0963d8dfebb7821cefbc92d34897 # v0.9.0
+      - uses: Litote/ci/.github/actions/setup-gradle@510461dc1f569a7c12735a6cad12e88a6cb533ad # v0.10.0
         with:
           cache-encryption-key: ${{ secrets.GRADLE_ENCRYPTION_KEY }}
 
-      - uses: Litote/ci/.github/actions/set-release-version@c111317515db0963d8dfebb7821cefbc92d34897 # v0.9.0
+      - uses: Litote/ci/.github/actions/set-release-version@510461dc1f569a7c12735a6cad12e88a6cb533ad # v0.10.0
         with:
           tag: ${{ needs.release-please.outputs.tag_name || inputs.tag }}
           jvm-args: -Xmx6g -Dfile.encoding=UTF-8
@@ -74,7 +74,7 @@ jobs:
 
       # Publishes JVM, JS, WASM, Linux and KotlinMultiplatform metadata.
       # Apple targets are excluded here and handled by the publish-macos job.
-      - uses: Litote/ci/.github/actions/maven-central-publish@c111317515db0963d8dfebb7821cefbc92d34897 # v0.9.0
+      - uses: Litote/ci/.github/actions/maven-central-publish@510461dc1f569a7c12735a6cad12e88a6cb533ad # v0.10.0
         with:
           gradle-args: >
             publishAndReleaseToMavenCentral
@@ -104,18 +104,18 @@ jobs:
           ref: refs/tags/${{ needs.release-please.outputs.tag_name || inputs.tag }}
           fetch-depth: 0
 
-      - uses: Litote/ci/.github/actions/setup-gradle@c111317515db0963d8dfebb7821cefbc92d34897 # v0.9.0
+      - uses: Litote/ci/.github/actions/setup-gradle@510461dc1f569a7c12735a6cad12e88a6cb533ad # v0.10.0
         with:
           cache-encryption-key: ${{ secrets.GRADLE_ENCRYPTION_KEY }}
 
-      - uses: Litote/ci/.github/actions/set-release-version@c111317515db0963d8dfebb7821cefbc92d34897 # v0.9.0
+      - uses: Litote/ci/.github/actions/set-release-version@510461dc1f569a7c12735a6cad12e88a6cb533ad # v0.10.0
         with:
           tag: ${{ needs.release-please.outputs.tag_name || inputs.tag }}
           jvm-args: -Xmx6g -Dfile.encoding=UTF-8
 
       # Publishes only Apple targets (macOS, iOS).
       # JVM / JS / WASM / Linux / KotlinMultiplatform metadata are handled by the publish job.
-      - uses: Litote/ci/.github/actions/maven-central-publish@c111317515db0963d8dfebb7821cefbc92d34897 # v0.9.0
+      - uses: Litote/ci/.github/actions/maven-central-publish@510461dc1f569a7c12735a6cad12e88a6cb533ad # v0.10.0
         with:
           gradle-args: >
             publishAndReleaseToMavenCentral
@@ -143,7 +143,7 @@ jobs:
       contents: write
 
     steps:
-      - uses: Litote/ci/.github/actions/publish-draft-release@c111317515db0963d8dfebb7821cefbc92d34897 # v0.9.0
+      - uses: Litote/ci/.github/actions/publish-draft-release@510461dc1f569a7c12735a6cad12e88a6cb533ad # v0.10.0
         with:
           tag: ${{ needs.release-please.outputs.tag_name || inputs.tag }}
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -167,11 +167,11 @@ jobs:
           ref: refs/tags/${{ needs.release-please.outputs.tag_name || inputs.tag }}
           fetch-depth: 0
 
-      - uses: Litote/ci/.github/actions/setup-gradle@c111317515db0963d8dfebb7821cefbc92d34897 # v0.9.0
+      - uses: Litote/ci/.github/actions/setup-gradle@510461dc1f569a7c12735a6cad12e88a6cb533ad # v0.10.0
         with:
           cache-encryption-key: ${{ secrets.GRADLE_ENCRYPTION_KEY }}
 
-      - uses: Litote/ci/.github/actions/set-release-version@c111317515db0963d8dfebb7821cefbc92d34897 # v0.9.0
+      - uses: Litote/ci/.github/actions/set-release-version@510461dc1f569a7c12735a6cad12e88a6cb533ad # v0.10.0
         with:
           tag: ${{ needs.release-please.outputs.tag_name || inputs.tag }}
 
