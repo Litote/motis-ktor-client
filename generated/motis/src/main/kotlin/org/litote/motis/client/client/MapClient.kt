@@ -106,30 +106,33 @@ public interface MapClient {
   ): RentalsResponse
 
   @Serializable
-  public sealed class TripsResponse {
-    public abstract val headers: Headers
+  public sealed class TripsResponse : OperationResponse<List<TripSegment>> {
+    abstract override val headers: Headers
   }
 
   @Serializable
   public data class TripsResponseSuccess(
-    public val body: List<TripSegment>,
+    override val body: List<TripSegment>,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : TripsResponse()
+  ) : TripsResponse(),
+      OperationResponseSuccess<List<TripSegment>>
 
   @Serializable
   public data class TripsResponseFailure(
-    public val body: Error,
+    override val body: Error,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : TripsResponse()
+  ) : TripsResponse(),
+      OperationResponseFailure<Error>
 
   @Serializable
   public data class TripsResponseUnknownFailure(
-    public val statusCode: Int,
+    override val statusCode: Int,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : TripsResponse()
+  ) : TripsResponse(),
+      OperationResponseUnknownFailure
 
   @Serializable
   public data class InitialResponseBody(
@@ -140,82 +143,91 @@ public interface MapClient {
   )
 
   @Serializable
-  public sealed class InitialResponse {
-    public abstract val headers: Headers
+  public sealed class InitialResponse : OperationResponse<InitialResponseBody> {
+    abstract override val headers: Headers
   }
 
   @Serializable
   public data class InitialResponseSuccess(
-    public val body: InitialResponseBody,
+    override val body: InitialResponseBody,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : InitialResponse()
+  ) : InitialResponse(),
+      OperationResponseSuccess<InitialResponseBody>
 
   @Serializable
   public data class InitialResponseFailure(
-    public val body: Error,
+    override val body: Error,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : InitialResponse()
+  ) : InitialResponse(),
+      OperationResponseFailure<Error>
 
   @Serializable
   public data class InitialResponseUnknownFailure(
-    public val statusCode: Int,
+    override val statusCode: Int,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : InitialResponse()
+  ) : InitialResponse(),
+      OperationResponseUnknownFailure
 
   @Serializable
-  public sealed class StopsResponse {
-    public abstract val headers: Headers
+  public sealed class StopsResponse : OperationResponse<List<Place>> {
+    abstract override val headers: Headers
   }
 
   @Serializable
   public data class StopsResponseSuccess(
-    public val body: List<Place>,
+    override val body: List<Place>,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : StopsResponse()
+  ) : StopsResponse(),
+      OperationResponseSuccess<List<Place>>
 
   @Serializable
   public data class StopsResponseFailure(
-    public val body: Error,
+    override val body: Error,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : StopsResponse()
+  ) : StopsResponse(),
+      OperationResponseFailure<Error>
 
   @Serializable
   public data class StopsResponseUnknownFailure(
-    public val statusCode: Int,
+    override val statusCode: Int,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : StopsResponse()
+  ) : StopsResponse(),
+      OperationResponseUnknownFailure
 
   @Serializable
-  public sealed class LevelsResponse {
-    public abstract val headers: Headers
+  public sealed class LevelsResponse : OperationResponse<List<Double>> {
+    abstract override val headers: Headers
   }
 
   @Serializable
   public data class LevelsResponseSuccess(
-    public val body: List<Double>,
+    override val body: List<Double>,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : LevelsResponse()
+  ) : LevelsResponse(),
+      OperationResponseSuccess<List<Double>>
 
   @Serializable
   public data class LevelsResponseFailure(
-    public val body: Error,
+    override val body: Error,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : LevelsResponse()
+  ) : LevelsResponse(),
+      OperationResponseFailure<Error>
 
   @Serializable
   public data class LevelsResponseUnknownFailure(
-    public val statusCode: Int,
+    override val statusCode: Int,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : LevelsResponse()
+  ) : LevelsResponse(),
+      OperationResponseUnknownFailure
 
   @Serializable
   public data class RoutesResponseBody(
@@ -226,30 +238,33 @@ public interface MapClient {
   )
 
   @Serializable
-  public sealed class RoutesResponse {
-    public abstract val headers: Headers
+  public sealed class RoutesResponse : OperationResponse<RoutesResponseBody> {
+    abstract override val headers: Headers
   }
 
   @Serializable
   public data class RoutesResponseSuccess(
-    public val body: RoutesResponseBody,
+    override val body: RoutesResponseBody,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : RoutesResponse()
+  ) : RoutesResponse(),
+      OperationResponseSuccess<RoutesResponseBody>
 
   @Serializable
   public data class RoutesResponseFailure(
-    public val body: Error,
+    override val body: Error,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : RoutesResponse()
+  ) : RoutesResponse(),
+      OperationResponseFailure<Error>
 
   @Serializable
   public data class RoutesResponseUnknownFailure(
-    public val statusCode: Int,
+    override val statusCode: Int,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : RoutesResponse()
+  ) : RoutesResponse(),
+      OperationResponseUnknownFailure
 
   @Serializable
   public data class RouteDetailsResponseBody(
@@ -260,30 +275,33 @@ public interface MapClient {
   )
 
   @Serializable
-  public sealed class RouteDetailsResponse {
-    public abstract val headers: Headers
+  public sealed class RouteDetailsResponse : OperationResponse<RouteDetailsResponseBody> {
+    abstract override val headers: Headers
   }
 
   @Serializable
   public data class RouteDetailsResponseSuccess(
-    public val body: RouteDetailsResponseBody,
+    override val body: RouteDetailsResponseBody,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : RouteDetailsResponse()
+  ) : RouteDetailsResponse(),
+      OperationResponseSuccess<RouteDetailsResponseBody>
 
   @Serializable
   public data class RouteDetailsResponseFailure(
-    public val body: Error,
+    override val body: Error,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : RouteDetailsResponse()
+  ) : RouteDetailsResponse(),
+      OperationResponseFailure<Error>
 
   @Serializable
   public data class RouteDetailsResponseUnknownFailure(
-    public val statusCode: Int,
+    override val statusCode: Int,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : RouteDetailsResponse()
+  ) : RouteDetailsResponse(),
+      OperationResponseUnknownFailure
 
   @Serializable
   public data class RentalsResponseBody(
@@ -295,30 +313,33 @@ public interface MapClient {
   )
 
   @Serializable
-  public sealed class RentalsResponse {
-    public abstract val headers: Headers
+  public sealed class RentalsResponse : OperationResponse<RentalsResponseBody> {
+    abstract override val headers: Headers
   }
 
   @Serializable
   public data class RentalsResponseSuccess(
-    public val body: RentalsResponseBody,
+    override val body: RentalsResponseBody,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : RentalsResponse()
+  ) : RentalsResponse(),
+      OperationResponseSuccess<RentalsResponseBody>
 
   @Serializable
   public data class RentalsResponseFailure(
-    public val body: Error,
+    override val body: Error,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : RentalsResponse()
+  ) : RentalsResponse(),
+      OperationResponseFailure<Error>
 
   @Serializable
   public data class RentalsResponseUnknownFailure(
-    public val statusCode: Int,
+    override val statusCode: Int,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : RentalsResponse()
+  ) : RentalsResponse(),
+      OperationResponseUnknownFailure
 }
 
 public fun MapClient(configuration: ClientConfiguration = defaultClientConfiguration): MapClient = DefaultMapClient(configuration)

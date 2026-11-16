@@ -7,7 +7,7 @@ public abstract interface class org/litote/motis/client/client/Client {
 	public abstract fun health (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
-public abstract class org/litote/motis/client/client/Client$HealthResponse {
+public abstract class org/litote/motis/client/client/Client$HealthResponse : org/litote/motis/client/client/OperationResponse {
 	public static final field Companion Lorg/litote/motis/client/client/Client$HealthResponse$Companion;
 	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public abstract fun getHeaders ()Lio/ktor/http/Headers;
@@ -18,7 +18,7 @@ public final class org/litote/motis/client/client/Client$HealthResponse$Companio
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/Client$HealthResponseFailure : org/litote/motis/client/client/Client$HealthResponse {
+public final class org/litote/motis/client/client/Client$HealthResponseFailure : org/litote/motis/client/client/Client$HealthResponse, org/litote/motis/client/client/OperationResponseFailure {
 	public static final field Companion Lorg/litote/motis/client/client/Client$HealthResponseFailure$Companion;
 	public fun <init> (Lorg/litote/motis/client/model/HealthResponse;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/model/HealthResponse;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -27,7 +27,8 @@ public final class org/litote/motis/client/client/Client$HealthResponseFailure :
 	public final fun copy (Lorg/litote/motis/client/model/HealthResponse;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/Client$HealthResponseFailure;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/Client$HealthResponseFailure;Lorg/litote/motis/client/model/HealthResponse;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/Client$HealthResponseFailure;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/model/HealthResponse;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/model/HealthResponse;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -48,7 +49,7 @@ public final class org/litote/motis/client/client/Client$HealthResponseFailure$C
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/Client$HealthResponseSuccess : org/litote/motis/client/client/Client$HealthResponse {
+public final class org/litote/motis/client/client/Client$HealthResponseSuccess : org/litote/motis/client/client/Client$HealthResponse, org/litote/motis/client/client/OperationResponseSuccess {
 	public static final field Companion Lorg/litote/motis/client/client/Client$HealthResponseSuccess$Companion;
 	public fun <init> (Lorg/litote/motis/client/model/HealthResponse;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/model/HealthResponse;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -57,7 +58,8 @@ public final class org/litote/motis/client/client/Client$HealthResponseSuccess :
 	public final fun copy (Lorg/litote/motis/client/model/HealthResponse;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/Client$HealthResponseSuccess;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/Client$HealthResponseSuccess;Lorg/litote/motis/client/model/HealthResponse;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/Client$HealthResponseSuccess;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/model/HealthResponse;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/model/HealthResponse;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -78,7 +80,7 @@ public final class org/litote/motis/client/client/Client$HealthResponseSuccess$C
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/Client$HealthResponseUnknownFailure : org/litote/motis/client/client/Client$HealthResponse {
+public final class org/litote/motis/client/client/Client$HealthResponseUnknownFailure : org/litote/motis/client/client/Client$HealthResponse, org/litote/motis/client/client/OperationResponseUnknownFailure {
 	public static final field Companion Lorg/litote/motis/client/client/Client$HealthResponseUnknownFailure$Companion;
 	public fun <init> (ILio/ktor/http/Headers;)V
 	public synthetic fun <init> (ILio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -88,7 +90,7 @@ public final class org/litote/motis/client/client/Client$HealthResponseUnknownFa
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/Client$HealthResponseUnknownFailure;ILio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/Client$HealthResponseUnknownFailure;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getHeaders ()Lio/ktor/http/Headers;
-	public final fun getStatusCode ()I
+	public fun getStatusCode ()I
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -148,7 +150,7 @@ public abstract interface class org/litote/motis/client/client/DebugClient {
 	public abstract fun transfers (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
-public abstract class org/litote/motis/client/client/DebugClient$TransfersResponse {
+public abstract class org/litote/motis/client/client/DebugClient$TransfersResponse : org/litote/motis/client/client/OperationResponse {
 	public static final field Companion Lorg/litote/motis/client/client/DebugClient$TransfersResponse$Companion;
 	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public abstract fun getHeaders ()Lio/ktor/http/Headers;
@@ -198,7 +200,7 @@ public final class org/litote/motis/client/client/DebugClient$TransfersResponseB
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/DebugClient$TransfersResponseSuccess : org/litote/motis/client/client/DebugClient$TransfersResponse {
+public final class org/litote/motis/client/client/DebugClient$TransfersResponseSuccess : org/litote/motis/client/client/DebugClient$TransfersResponse, org/litote/motis/client/client/OperationResponseSuccess {
 	public static final field Companion Lorg/litote/motis/client/client/DebugClient$TransfersResponseSuccess$Companion;
 	public fun <init> (Lorg/litote/motis/client/client/DebugClient$TransfersResponseBody;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/client/DebugClient$TransfersResponseBody;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -207,7 +209,8 @@ public final class org/litote/motis/client/client/DebugClient$TransfersResponseS
 	public final fun copy (Lorg/litote/motis/client/client/DebugClient$TransfersResponseBody;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/DebugClient$TransfersResponseSuccess;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/DebugClient$TransfersResponseSuccess;Lorg/litote/motis/client/client/DebugClient$TransfersResponseBody;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/DebugClient$TransfersResponseSuccess;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/client/DebugClient$TransfersResponseBody;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/client/DebugClient$TransfersResponseBody;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -228,7 +231,7 @@ public final class org/litote/motis/client/client/DebugClient$TransfersResponseS
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/DebugClient$TransfersResponseUnknownFailure : org/litote/motis/client/client/DebugClient$TransfersResponse {
+public final class org/litote/motis/client/client/DebugClient$TransfersResponseUnknownFailure : org/litote/motis/client/client/DebugClient$TransfersResponse, org/litote/motis/client/client/OperationResponseUnknownFailure {
 	public static final field Companion Lorg/litote/motis/client/client/DebugClient$TransfersResponseUnknownFailure$Companion;
 	public fun <init> (ILio/ktor/http/Headers;)V
 	public synthetic fun <init> (ILio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -238,7 +241,7 @@ public final class org/litote/motis/client/client/DebugClient$TransfersResponseU
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/DebugClient$TransfersResponseUnknownFailure;ILio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/DebugClient$TransfersResponseUnknownFailure;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getHeaders ()Lio/ktor/http/Headers;
-	public final fun getStatusCode ()I
+	public fun getStatusCode ()I
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -332,7 +335,7 @@ public final class org/litote/motis/client/client/GeocodeClient$DefaultImpls {
 	public static synthetic fun reverseGeocode$default (Lorg/litote/motis/client/client/GeocodeClient;Ljava/lang/String;Ljava/util/List;Ljava/lang/Long;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
 }
 
-public abstract class org/litote/motis/client/client/GeocodeClient$GeocodeResponse {
+public abstract class org/litote/motis/client/client/GeocodeClient$GeocodeResponse : org/litote/motis/client/client/OperationResponse {
 	public static final field Companion Lorg/litote/motis/client/client/GeocodeClient$GeocodeResponse$Companion;
 	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public abstract fun getHeaders ()Lio/ktor/http/Headers;
@@ -343,7 +346,7 @@ public final class org/litote/motis/client/client/GeocodeClient$GeocodeResponse$
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/GeocodeClient$GeocodeResponseFailure : org/litote/motis/client/client/GeocodeClient$GeocodeResponse {
+public final class org/litote/motis/client/client/GeocodeClient$GeocodeResponseFailure : org/litote/motis/client/client/GeocodeClient$GeocodeResponse, org/litote/motis/client/client/OperationResponseFailure {
 	public static final field Companion Lorg/litote/motis/client/client/GeocodeClient$GeocodeResponseFailure$Companion;
 	public fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -352,7 +355,8 @@ public final class org/litote/motis/client/client/GeocodeClient$GeocodeResponseF
 	public final fun copy (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/GeocodeClient$GeocodeResponseFailure;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/GeocodeClient$GeocodeResponseFailure;Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/GeocodeClient$GeocodeResponseFailure;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/model/Error;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/model/Error;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -373,7 +377,7 @@ public final class org/litote/motis/client/client/GeocodeClient$GeocodeResponseF
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/GeocodeClient$GeocodeResponseSuccess : org/litote/motis/client/client/GeocodeClient$GeocodeResponse {
+public final class org/litote/motis/client/client/GeocodeClient$GeocodeResponseSuccess : org/litote/motis/client/client/GeocodeClient$GeocodeResponse, org/litote/motis/client/client/OperationResponseSuccess {
 	public static final field Companion Lorg/litote/motis/client/client/GeocodeClient$GeocodeResponseSuccess$Companion;
 	public fun <init> (Ljava/util/List;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Ljava/util/List;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -382,7 +386,8 @@ public final class org/litote/motis/client/client/GeocodeClient$GeocodeResponseS
 	public final fun copy (Ljava/util/List;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/GeocodeClient$GeocodeResponseSuccess;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/GeocodeClient$GeocodeResponseSuccess;Ljava/util/List;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/GeocodeClient$GeocodeResponseSuccess;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Ljava/util/List;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Ljava/util/List;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -403,7 +408,7 @@ public final class org/litote/motis/client/client/GeocodeClient$GeocodeResponseS
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/GeocodeClient$GeocodeResponseUnknownFailure : org/litote/motis/client/client/GeocodeClient$GeocodeResponse {
+public final class org/litote/motis/client/client/GeocodeClient$GeocodeResponseUnknownFailure : org/litote/motis/client/client/GeocodeClient$GeocodeResponse, org/litote/motis/client/client/OperationResponseUnknownFailure {
 	public static final field Companion Lorg/litote/motis/client/client/GeocodeClient$GeocodeResponseUnknownFailure$Companion;
 	public fun <init> (ILio/ktor/http/Headers;)V
 	public synthetic fun <init> (ILio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -413,7 +418,7 @@ public final class org/litote/motis/client/client/GeocodeClient$GeocodeResponseU
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/GeocodeClient$GeocodeResponseUnknownFailure;ILio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/GeocodeClient$GeocodeResponseUnknownFailure;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getHeaders ()Lio/ktor/http/Headers;
-	public final fun getStatusCode ()I
+	public fun getStatusCode ()I
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -433,7 +438,7 @@ public final class org/litote/motis/client/client/GeocodeClient$GeocodeResponseU
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public abstract class org/litote/motis/client/client/GeocodeClient$ReverseGeocodeResponse {
+public abstract class org/litote/motis/client/client/GeocodeClient$ReverseGeocodeResponse : org/litote/motis/client/client/OperationResponse {
 	public static final field Companion Lorg/litote/motis/client/client/GeocodeClient$ReverseGeocodeResponse$Companion;
 	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public abstract fun getHeaders ()Lio/ktor/http/Headers;
@@ -444,7 +449,7 @@ public final class org/litote/motis/client/client/GeocodeClient$ReverseGeocodeRe
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/GeocodeClient$ReverseGeocodeResponseFailure : org/litote/motis/client/client/GeocodeClient$ReverseGeocodeResponse {
+public final class org/litote/motis/client/client/GeocodeClient$ReverseGeocodeResponseFailure : org/litote/motis/client/client/GeocodeClient$ReverseGeocodeResponse, org/litote/motis/client/client/OperationResponseFailure {
 	public static final field Companion Lorg/litote/motis/client/client/GeocodeClient$ReverseGeocodeResponseFailure$Companion;
 	public fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -453,7 +458,8 @@ public final class org/litote/motis/client/client/GeocodeClient$ReverseGeocodeRe
 	public final fun copy (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/GeocodeClient$ReverseGeocodeResponseFailure;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/GeocodeClient$ReverseGeocodeResponseFailure;Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/GeocodeClient$ReverseGeocodeResponseFailure;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/model/Error;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/model/Error;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -474,7 +480,7 @@ public final class org/litote/motis/client/client/GeocodeClient$ReverseGeocodeRe
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/GeocodeClient$ReverseGeocodeResponseSuccess : org/litote/motis/client/client/GeocodeClient$ReverseGeocodeResponse {
+public final class org/litote/motis/client/client/GeocodeClient$ReverseGeocodeResponseSuccess : org/litote/motis/client/client/GeocodeClient$ReverseGeocodeResponse, org/litote/motis/client/client/OperationResponseSuccess {
 	public static final field Companion Lorg/litote/motis/client/client/GeocodeClient$ReverseGeocodeResponseSuccess$Companion;
 	public fun <init> (Ljava/util/List;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Ljava/util/List;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -483,7 +489,8 @@ public final class org/litote/motis/client/client/GeocodeClient$ReverseGeocodeRe
 	public final fun copy (Ljava/util/List;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/GeocodeClient$ReverseGeocodeResponseSuccess;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/GeocodeClient$ReverseGeocodeResponseSuccess;Ljava/util/List;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/GeocodeClient$ReverseGeocodeResponseSuccess;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Ljava/util/List;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Ljava/util/List;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -504,7 +511,7 @@ public final class org/litote/motis/client/client/GeocodeClient$ReverseGeocodeRe
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/GeocodeClient$ReverseGeocodeResponseUnknownFailure : org/litote/motis/client/client/GeocodeClient$ReverseGeocodeResponse {
+public final class org/litote/motis/client/client/GeocodeClient$ReverseGeocodeResponseUnknownFailure : org/litote/motis/client/client/GeocodeClient$ReverseGeocodeResponse, org/litote/motis/client/client/OperationResponseUnknownFailure {
 	public static final field Companion Lorg/litote/motis/client/client/GeocodeClient$ReverseGeocodeResponseUnknownFailure$Companion;
 	public fun <init> (ILio/ktor/http/Headers;)V
 	public synthetic fun <init> (ILio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -514,7 +521,7 @@ public final class org/litote/motis/client/client/GeocodeClient$ReverseGeocodeRe
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/GeocodeClient$ReverseGeocodeResponseUnknownFailure;ILio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/GeocodeClient$ReverseGeocodeResponseUnknownFailure;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getHeaders ()Lio/ktor/http/Headers;
-	public final fun getStatusCode ()I
+	public fun getStatusCode ()I
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -562,7 +569,7 @@ public final class org/litote/motis/client/client/MapClient$DefaultImpls {
 	public static synthetic fun trips$default (Lorg/litote/motis/client/client/MapClient;DLjava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/Double;Ljava/util/List;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
 }
 
-public abstract class org/litote/motis/client/client/MapClient$InitialResponse {
+public abstract class org/litote/motis/client/client/MapClient$InitialResponse : org/litote/motis/client/client/OperationResponse {
 	public static final field Companion Lorg/litote/motis/client/client/MapClient$InitialResponse$Companion;
 	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public abstract fun getHeaders ()Lio/ktor/http/Headers;
@@ -606,7 +613,7 @@ public final class org/litote/motis/client/client/MapClient$InitialResponseBody$
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/MapClient$InitialResponseFailure : org/litote/motis/client/client/MapClient$InitialResponse {
+public final class org/litote/motis/client/client/MapClient$InitialResponseFailure : org/litote/motis/client/client/MapClient$InitialResponse, org/litote/motis/client/client/OperationResponseFailure {
 	public static final field Companion Lorg/litote/motis/client/client/MapClient$InitialResponseFailure$Companion;
 	public fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -615,7 +622,8 @@ public final class org/litote/motis/client/client/MapClient$InitialResponseFailu
 	public final fun copy (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/MapClient$InitialResponseFailure;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/MapClient$InitialResponseFailure;Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/MapClient$InitialResponseFailure;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/model/Error;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/model/Error;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -636,7 +644,7 @@ public final class org/litote/motis/client/client/MapClient$InitialResponseFailu
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/MapClient$InitialResponseSuccess : org/litote/motis/client/client/MapClient$InitialResponse {
+public final class org/litote/motis/client/client/MapClient$InitialResponseSuccess : org/litote/motis/client/client/MapClient$InitialResponse, org/litote/motis/client/client/OperationResponseSuccess {
 	public static final field Companion Lorg/litote/motis/client/client/MapClient$InitialResponseSuccess$Companion;
 	public fun <init> (Lorg/litote/motis/client/client/MapClient$InitialResponseBody;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/client/MapClient$InitialResponseBody;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -645,7 +653,8 @@ public final class org/litote/motis/client/client/MapClient$InitialResponseSucce
 	public final fun copy (Lorg/litote/motis/client/client/MapClient$InitialResponseBody;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/MapClient$InitialResponseSuccess;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/MapClient$InitialResponseSuccess;Lorg/litote/motis/client/client/MapClient$InitialResponseBody;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/MapClient$InitialResponseSuccess;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/client/MapClient$InitialResponseBody;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/client/MapClient$InitialResponseBody;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -666,7 +675,7 @@ public final class org/litote/motis/client/client/MapClient$InitialResponseSucce
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/MapClient$InitialResponseUnknownFailure : org/litote/motis/client/client/MapClient$InitialResponse {
+public final class org/litote/motis/client/client/MapClient$InitialResponseUnknownFailure : org/litote/motis/client/client/MapClient$InitialResponse, org/litote/motis/client/client/OperationResponseUnknownFailure {
 	public static final field Companion Lorg/litote/motis/client/client/MapClient$InitialResponseUnknownFailure$Companion;
 	public fun <init> (ILio/ktor/http/Headers;)V
 	public synthetic fun <init> (ILio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -676,7 +685,7 @@ public final class org/litote/motis/client/client/MapClient$InitialResponseUnkno
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/MapClient$InitialResponseUnknownFailure;ILio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/MapClient$InitialResponseUnknownFailure;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getHeaders ()Lio/ktor/http/Headers;
-	public final fun getStatusCode ()I
+	public fun getStatusCode ()I
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -696,7 +705,7 @@ public final class org/litote/motis/client/client/MapClient$InitialResponseUnkno
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public abstract class org/litote/motis/client/client/MapClient$LevelsResponse {
+public abstract class org/litote/motis/client/client/MapClient$LevelsResponse : org/litote/motis/client/client/OperationResponse {
 	public static final field Companion Lorg/litote/motis/client/client/MapClient$LevelsResponse$Companion;
 	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public abstract fun getHeaders ()Lio/ktor/http/Headers;
@@ -707,7 +716,7 @@ public final class org/litote/motis/client/client/MapClient$LevelsResponse$Compa
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/MapClient$LevelsResponseFailure : org/litote/motis/client/client/MapClient$LevelsResponse {
+public final class org/litote/motis/client/client/MapClient$LevelsResponseFailure : org/litote/motis/client/client/MapClient$LevelsResponse, org/litote/motis/client/client/OperationResponseFailure {
 	public static final field Companion Lorg/litote/motis/client/client/MapClient$LevelsResponseFailure$Companion;
 	public fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -716,7 +725,8 @@ public final class org/litote/motis/client/client/MapClient$LevelsResponseFailur
 	public final fun copy (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/MapClient$LevelsResponseFailure;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/MapClient$LevelsResponseFailure;Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/MapClient$LevelsResponseFailure;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/model/Error;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/model/Error;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -737,7 +747,7 @@ public final class org/litote/motis/client/client/MapClient$LevelsResponseFailur
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/MapClient$LevelsResponseSuccess : org/litote/motis/client/client/MapClient$LevelsResponse {
+public final class org/litote/motis/client/client/MapClient$LevelsResponseSuccess : org/litote/motis/client/client/MapClient$LevelsResponse, org/litote/motis/client/client/OperationResponseSuccess {
 	public static final field Companion Lorg/litote/motis/client/client/MapClient$LevelsResponseSuccess$Companion;
 	public fun <init> (Ljava/util/List;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Ljava/util/List;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -746,7 +756,8 @@ public final class org/litote/motis/client/client/MapClient$LevelsResponseSucces
 	public final fun copy (Ljava/util/List;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/MapClient$LevelsResponseSuccess;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/MapClient$LevelsResponseSuccess;Ljava/util/List;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/MapClient$LevelsResponseSuccess;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Ljava/util/List;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Ljava/util/List;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -767,7 +778,7 @@ public final class org/litote/motis/client/client/MapClient$LevelsResponseSucces
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/MapClient$LevelsResponseUnknownFailure : org/litote/motis/client/client/MapClient$LevelsResponse {
+public final class org/litote/motis/client/client/MapClient$LevelsResponseUnknownFailure : org/litote/motis/client/client/MapClient$LevelsResponse, org/litote/motis/client/client/OperationResponseUnknownFailure {
 	public static final field Companion Lorg/litote/motis/client/client/MapClient$LevelsResponseUnknownFailure$Companion;
 	public fun <init> (ILio/ktor/http/Headers;)V
 	public synthetic fun <init> (ILio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -777,7 +788,7 @@ public final class org/litote/motis/client/client/MapClient$LevelsResponseUnknow
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/MapClient$LevelsResponseUnknownFailure;ILio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/MapClient$LevelsResponseUnknownFailure;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getHeaders ()Lio/ktor/http/Headers;
-	public final fun getStatusCode ()I
+	public fun getStatusCode ()I
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -797,7 +808,7 @@ public final class org/litote/motis/client/client/MapClient$LevelsResponseUnknow
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public abstract class org/litote/motis/client/client/MapClient$RentalsResponse {
+public abstract class org/litote/motis/client/client/MapClient$RentalsResponse : org/litote/motis/client/client/OperationResponse {
 	public static final field Companion Lorg/litote/motis/client/client/MapClient$RentalsResponse$Companion;
 	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public abstract fun getHeaders ()Lio/ktor/http/Headers;
@@ -843,7 +854,7 @@ public final class org/litote/motis/client/client/MapClient$RentalsResponseBody$
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/MapClient$RentalsResponseFailure : org/litote/motis/client/client/MapClient$RentalsResponse {
+public final class org/litote/motis/client/client/MapClient$RentalsResponseFailure : org/litote/motis/client/client/MapClient$RentalsResponse, org/litote/motis/client/client/OperationResponseFailure {
 	public static final field Companion Lorg/litote/motis/client/client/MapClient$RentalsResponseFailure$Companion;
 	public fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -852,7 +863,8 @@ public final class org/litote/motis/client/client/MapClient$RentalsResponseFailu
 	public final fun copy (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/MapClient$RentalsResponseFailure;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/MapClient$RentalsResponseFailure;Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/MapClient$RentalsResponseFailure;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/model/Error;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/model/Error;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -873,7 +885,7 @@ public final class org/litote/motis/client/client/MapClient$RentalsResponseFailu
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/MapClient$RentalsResponseSuccess : org/litote/motis/client/client/MapClient$RentalsResponse {
+public final class org/litote/motis/client/client/MapClient$RentalsResponseSuccess : org/litote/motis/client/client/MapClient$RentalsResponse, org/litote/motis/client/client/OperationResponseSuccess {
 	public static final field Companion Lorg/litote/motis/client/client/MapClient$RentalsResponseSuccess$Companion;
 	public fun <init> (Lorg/litote/motis/client/client/MapClient$RentalsResponseBody;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/client/MapClient$RentalsResponseBody;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -882,7 +894,8 @@ public final class org/litote/motis/client/client/MapClient$RentalsResponseSucce
 	public final fun copy (Lorg/litote/motis/client/client/MapClient$RentalsResponseBody;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/MapClient$RentalsResponseSuccess;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/MapClient$RentalsResponseSuccess;Lorg/litote/motis/client/client/MapClient$RentalsResponseBody;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/MapClient$RentalsResponseSuccess;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/client/MapClient$RentalsResponseBody;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/client/MapClient$RentalsResponseBody;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -903,7 +916,7 @@ public final class org/litote/motis/client/client/MapClient$RentalsResponseSucce
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/MapClient$RentalsResponseUnknownFailure : org/litote/motis/client/client/MapClient$RentalsResponse {
+public final class org/litote/motis/client/client/MapClient$RentalsResponseUnknownFailure : org/litote/motis/client/client/MapClient$RentalsResponse, org/litote/motis/client/client/OperationResponseUnknownFailure {
 	public static final field Companion Lorg/litote/motis/client/client/MapClient$RentalsResponseUnknownFailure$Companion;
 	public fun <init> (ILio/ktor/http/Headers;)V
 	public synthetic fun <init> (ILio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -913,7 +926,7 @@ public final class org/litote/motis/client/client/MapClient$RentalsResponseUnkno
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/MapClient$RentalsResponseUnknownFailure;ILio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/MapClient$RentalsResponseUnknownFailure;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getHeaders ()Lio/ktor/http/Headers;
-	public final fun getStatusCode ()I
+	public fun getStatusCode ()I
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -933,7 +946,7 @@ public final class org/litote/motis/client/client/MapClient$RentalsResponseUnkno
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public abstract class org/litote/motis/client/client/MapClient$RouteDetailsResponse {
+public abstract class org/litote/motis/client/client/MapClient$RouteDetailsResponse : org/litote/motis/client/client/OperationResponse {
 	public static final field Companion Lorg/litote/motis/client/client/MapClient$RouteDetailsResponse$Companion;
 	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public abstract fun getHeaders ()Lio/ktor/http/Headers;
@@ -977,7 +990,7 @@ public final class org/litote/motis/client/client/MapClient$RouteDetailsResponse
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/MapClient$RouteDetailsResponseFailure : org/litote/motis/client/client/MapClient$RouteDetailsResponse {
+public final class org/litote/motis/client/client/MapClient$RouteDetailsResponseFailure : org/litote/motis/client/client/MapClient$RouteDetailsResponse, org/litote/motis/client/client/OperationResponseFailure {
 	public static final field Companion Lorg/litote/motis/client/client/MapClient$RouteDetailsResponseFailure$Companion;
 	public fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -986,7 +999,8 @@ public final class org/litote/motis/client/client/MapClient$RouteDetailsResponse
 	public final fun copy (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/MapClient$RouteDetailsResponseFailure;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/MapClient$RouteDetailsResponseFailure;Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/MapClient$RouteDetailsResponseFailure;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/model/Error;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/model/Error;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -1007,7 +1021,7 @@ public final class org/litote/motis/client/client/MapClient$RouteDetailsResponse
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/MapClient$RouteDetailsResponseSuccess : org/litote/motis/client/client/MapClient$RouteDetailsResponse {
+public final class org/litote/motis/client/client/MapClient$RouteDetailsResponseSuccess : org/litote/motis/client/client/MapClient$RouteDetailsResponse, org/litote/motis/client/client/OperationResponseSuccess {
 	public static final field Companion Lorg/litote/motis/client/client/MapClient$RouteDetailsResponseSuccess$Companion;
 	public fun <init> (Lorg/litote/motis/client/client/MapClient$RouteDetailsResponseBody;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/client/MapClient$RouteDetailsResponseBody;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -1016,7 +1030,8 @@ public final class org/litote/motis/client/client/MapClient$RouteDetailsResponse
 	public final fun copy (Lorg/litote/motis/client/client/MapClient$RouteDetailsResponseBody;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/MapClient$RouteDetailsResponseSuccess;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/MapClient$RouteDetailsResponseSuccess;Lorg/litote/motis/client/client/MapClient$RouteDetailsResponseBody;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/MapClient$RouteDetailsResponseSuccess;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/client/MapClient$RouteDetailsResponseBody;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/client/MapClient$RouteDetailsResponseBody;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -1037,7 +1052,7 @@ public final class org/litote/motis/client/client/MapClient$RouteDetailsResponse
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/MapClient$RouteDetailsResponseUnknownFailure : org/litote/motis/client/client/MapClient$RouteDetailsResponse {
+public final class org/litote/motis/client/client/MapClient$RouteDetailsResponseUnknownFailure : org/litote/motis/client/client/MapClient$RouteDetailsResponse, org/litote/motis/client/client/OperationResponseUnknownFailure {
 	public static final field Companion Lorg/litote/motis/client/client/MapClient$RouteDetailsResponseUnknownFailure$Companion;
 	public fun <init> (ILio/ktor/http/Headers;)V
 	public synthetic fun <init> (ILio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -1047,7 +1062,7 @@ public final class org/litote/motis/client/client/MapClient$RouteDetailsResponse
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/MapClient$RouteDetailsResponseUnknownFailure;ILio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/MapClient$RouteDetailsResponseUnknownFailure;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getHeaders ()Lio/ktor/http/Headers;
-	public final fun getStatusCode ()I
+	public fun getStatusCode ()I
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -1067,7 +1082,7 @@ public final class org/litote/motis/client/client/MapClient$RouteDetailsResponse
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public abstract class org/litote/motis/client/client/MapClient$RoutesResponse {
+public abstract class org/litote/motis/client/client/MapClient$RoutesResponse : org/litote/motis/client/client/OperationResponse {
 	public static final field Companion Lorg/litote/motis/client/client/MapClient$RoutesResponse$Companion;
 	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public abstract fun getHeaders ()Lio/ktor/http/Headers;
@@ -1111,7 +1126,7 @@ public final class org/litote/motis/client/client/MapClient$RoutesResponseBody$C
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/MapClient$RoutesResponseFailure : org/litote/motis/client/client/MapClient$RoutesResponse {
+public final class org/litote/motis/client/client/MapClient$RoutesResponseFailure : org/litote/motis/client/client/MapClient$RoutesResponse, org/litote/motis/client/client/OperationResponseFailure {
 	public static final field Companion Lorg/litote/motis/client/client/MapClient$RoutesResponseFailure$Companion;
 	public fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -1120,7 +1135,8 @@ public final class org/litote/motis/client/client/MapClient$RoutesResponseFailur
 	public final fun copy (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/MapClient$RoutesResponseFailure;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/MapClient$RoutesResponseFailure;Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/MapClient$RoutesResponseFailure;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/model/Error;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/model/Error;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -1141,7 +1157,7 @@ public final class org/litote/motis/client/client/MapClient$RoutesResponseFailur
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/MapClient$RoutesResponseSuccess : org/litote/motis/client/client/MapClient$RoutesResponse {
+public final class org/litote/motis/client/client/MapClient$RoutesResponseSuccess : org/litote/motis/client/client/MapClient$RoutesResponse, org/litote/motis/client/client/OperationResponseSuccess {
 	public static final field Companion Lorg/litote/motis/client/client/MapClient$RoutesResponseSuccess$Companion;
 	public fun <init> (Lorg/litote/motis/client/client/MapClient$RoutesResponseBody;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/client/MapClient$RoutesResponseBody;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -1150,7 +1166,8 @@ public final class org/litote/motis/client/client/MapClient$RoutesResponseSucces
 	public final fun copy (Lorg/litote/motis/client/client/MapClient$RoutesResponseBody;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/MapClient$RoutesResponseSuccess;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/MapClient$RoutesResponseSuccess;Lorg/litote/motis/client/client/MapClient$RoutesResponseBody;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/MapClient$RoutesResponseSuccess;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/client/MapClient$RoutesResponseBody;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/client/MapClient$RoutesResponseBody;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -1171,7 +1188,7 @@ public final class org/litote/motis/client/client/MapClient$RoutesResponseSucces
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/MapClient$RoutesResponseUnknownFailure : org/litote/motis/client/client/MapClient$RoutesResponse {
+public final class org/litote/motis/client/client/MapClient$RoutesResponseUnknownFailure : org/litote/motis/client/client/MapClient$RoutesResponse, org/litote/motis/client/client/OperationResponseUnknownFailure {
 	public static final field Companion Lorg/litote/motis/client/client/MapClient$RoutesResponseUnknownFailure$Companion;
 	public fun <init> (ILio/ktor/http/Headers;)V
 	public synthetic fun <init> (ILio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -1181,7 +1198,7 @@ public final class org/litote/motis/client/client/MapClient$RoutesResponseUnknow
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/MapClient$RoutesResponseUnknownFailure;ILio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/MapClient$RoutesResponseUnknownFailure;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getHeaders ()Lio/ktor/http/Headers;
-	public final fun getStatusCode ()I
+	public fun getStatusCode ()I
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -1201,7 +1218,7 @@ public final class org/litote/motis/client/client/MapClient$RoutesResponseUnknow
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public abstract class org/litote/motis/client/client/MapClient$StopsResponse {
+public abstract class org/litote/motis/client/client/MapClient$StopsResponse : org/litote/motis/client/client/OperationResponse {
 	public static final field Companion Lorg/litote/motis/client/client/MapClient$StopsResponse$Companion;
 	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public abstract fun getHeaders ()Lio/ktor/http/Headers;
@@ -1212,7 +1229,7 @@ public final class org/litote/motis/client/client/MapClient$StopsResponse$Compan
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/MapClient$StopsResponseFailure : org/litote/motis/client/client/MapClient$StopsResponse {
+public final class org/litote/motis/client/client/MapClient$StopsResponseFailure : org/litote/motis/client/client/MapClient$StopsResponse, org/litote/motis/client/client/OperationResponseFailure {
 	public static final field Companion Lorg/litote/motis/client/client/MapClient$StopsResponseFailure$Companion;
 	public fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -1221,7 +1238,8 @@ public final class org/litote/motis/client/client/MapClient$StopsResponseFailure
 	public final fun copy (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/MapClient$StopsResponseFailure;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/MapClient$StopsResponseFailure;Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/MapClient$StopsResponseFailure;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/model/Error;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/model/Error;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -1242,7 +1260,7 @@ public final class org/litote/motis/client/client/MapClient$StopsResponseFailure
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/MapClient$StopsResponseSuccess : org/litote/motis/client/client/MapClient$StopsResponse {
+public final class org/litote/motis/client/client/MapClient$StopsResponseSuccess : org/litote/motis/client/client/MapClient$StopsResponse, org/litote/motis/client/client/OperationResponseSuccess {
 	public static final field Companion Lorg/litote/motis/client/client/MapClient$StopsResponseSuccess$Companion;
 	public fun <init> (Ljava/util/List;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Ljava/util/List;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -1251,7 +1269,8 @@ public final class org/litote/motis/client/client/MapClient$StopsResponseSuccess
 	public final fun copy (Ljava/util/List;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/MapClient$StopsResponseSuccess;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/MapClient$StopsResponseSuccess;Ljava/util/List;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/MapClient$StopsResponseSuccess;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Ljava/util/List;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Ljava/util/List;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -1272,7 +1291,7 @@ public final class org/litote/motis/client/client/MapClient$StopsResponseSuccess
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/MapClient$StopsResponseUnknownFailure : org/litote/motis/client/client/MapClient$StopsResponse {
+public final class org/litote/motis/client/client/MapClient$StopsResponseUnknownFailure : org/litote/motis/client/client/MapClient$StopsResponse, org/litote/motis/client/client/OperationResponseUnknownFailure {
 	public static final field Companion Lorg/litote/motis/client/client/MapClient$StopsResponseUnknownFailure$Companion;
 	public fun <init> (ILio/ktor/http/Headers;)V
 	public synthetic fun <init> (ILio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -1282,7 +1301,7 @@ public final class org/litote/motis/client/client/MapClient$StopsResponseUnknown
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/MapClient$StopsResponseUnknownFailure;ILio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/MapClient$StopsResponseUnknownFailure;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getHeaders ()Lio/ktor/http/Headers;
-	public final fun getStatusCode ()I
+	public fun getStatusCode ()I
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -1302,7 +1321,7 @@ public final class org/litote/motis/client/client/MapClient$StopsResponseUnknown
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public abstract class org/litote/motis/client/client/MapClient$TripsResponse {
+public abstract class org/litote/motis/client/client/MapClient$TripsResponse : org/litote/motis/client/client/OperationResponse {
 	public static final field Companion Lorg/litote/motis/client/client/MapClient$TripsResponse$Companion;
 	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public abstract fun getHeaders ()Lio/ktor/http/Headers;
@@ -1313,7 +1332,7 @@ public final class org/litote/motis/client/client/MapClient$TripsResponse$Compan
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/MapClient$TripsResponseFailure : org/litote/motis/client/client/MapClient$TripsResponse {
+public final class org/litote/motis/client/client/MapClient$TripsResponseFailure : org/litote/motis/client/client/MapClient$TripsResponse, org/litote/motis/client/client/OperationResponseFailure {
 	public static final field Companion Lorg/litote/motis/client/client/MapClient$TripsResponseFailure$Companion;
 	public fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -1322,7 +1341,8 @@ public final class org/litote/motis/client/client/MapClient$TripsResponseFailure
 	public final fun copy (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/MapClient$TripsResponseFailure;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/MapClient$TripsResponseFailure;Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/MapClient$TripsResponseFailure;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/model/Error;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/model/Error;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -1343,7 +1363,7 @@ public final class org/litote/motis/client/client/MapClient$TripsResponseFailure
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/MapClient$TripsResponseSuccess : org/litote/motis/client/client/MapClient$TripsResponse {
+public final class org/litote/motis/client/client/MapClient$TripsResponseSuccess : org/litote/motis/client/client/MapClient$TripsResponse, org/litote/motis/client/client/OperationResponseSuccess {
 	public static final field Companion Lorg/litote/motis/client/client/MapClient$TripsResponseSuccess$Companion;
 	public fun <init> (Ljava/util/List;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Ljava/util/List;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -1352,7 +1372,8 @@ public final class org/litote/motis/client/client/MapClient$TripsResponseSuccess
 	public final fun copy (Ljava/util/List;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/MapClient$TripsResponseSuccess;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/MapClient$TripsResponseSuccess;Ljava/util/List;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/MapClient$TripsResponseSuccess;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Ljava/util/List;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Ljava/util/List;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -1373,7 +1394,7 @@ public final class org/litote/motis/client/client/MapClient$TripsResponseSuccess
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/MapClient$TripsResponseUnknownFailure : org/litote/motis/client/client/MapClient$TripsResponse {
+public final class org/litote/motis/client/client/MapClient$TripsResponseUnknownFailure : org/litote/motis/client/client/MapClient$TripsResponse, org/litote/motis/client/client/OperationResponseUnknownFailure {
 	public static final field Companion Lorg/litote/motis/client/client/MapClient$TripsResponseUnknownFailure$Companion;
 	public fun <init> (ILio/ktor/http/Headers;)V
 	public synthetic fun <init> (ILio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -1383,7 +1404,7 @@ public final class org/litote/motis/client/client/MapClient$TripsResponseUnknown
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/MapClient$TripsResponseUnknownFailure;ILio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/MapClient$TripsResponseUnknownFailure;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getHeaders ()Lio/ktor/http/Headers;
-	public final fun getStatusCode ()I
+	public fun getStatusCode ()I
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -1406,6 +1427,22 @@ public final class org/litote/motis/client/client/MapClient$TripsResponseUnknown
 public final class org/litote/motis/client/client/MapClientKt {
 	public static final fun MapClient (Lorg/litote/motis/client/client/ClientConfiguration;)Lorg/litote/motis/client/client/MapClient;
 	public static synthetic fun MapClient$default (Lorg/litote/motis/client/client/ClientConfiguration;ILjava/lang/Object;)Lorg/litote/motis/client/client/MapClient;
+}
+
+public abstract interface class org/litote/motis/client/client/OperationResponse {
+	public abstract fun getHeaders ()Lio/ktor/http/Headers;
+}
+
+public abstract interface class org/litote/motis/client/client/OperationResponseFailure {
+	public abstract fun getBody ()Ljava/lang/Object;
+}
+
+public abstract interface class org/litote/motis/client/client/OperationResponseSuccess : org/litote/motis/client/client/OperationResponse {
+	public abstract fun getBody ()Ljava/lang/Object;
+}
+
+public abstract interface class org/litote/motis/client/client/OperationResponseUnknownFailure {
+	public abstract fun getStatusCode ()I
 }
 
 public abstract interface class org/litote/motis/client/client/RoutingClient {
@@ -1443,7 +1480,7 @@ public final class org/litote/motis/client/client/RoutingClient$DefaultImpls {
 	public static synthetic fun plan$default (Lorg/litote/motis/client/client/RoutingClient;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Double;Ljava/util/List;Ljava/util/List;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Double;Ljava/lang/Double;Lorg/litote/motis/client/model/PedestrianProfile;Ljava/lang/Double;Ljava/lang/Double;Lorg/litote/motis/client/model/ElevationCosts;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Double;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/Double;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/util/List;Lorg/litote/motis/client/client/RoutingClient$Algorithm;Lkotlin/coroutines/Continuation;IILjava/lang/Object;)Ljava/lang/Object;
 }
 
-public abstract class org/litote/motis/client/client/RoutingClient$OneToAllResponse {
+public abstract class org/litote/motis/client/client/RoutingClient$OneToAllResponse : org/litote/motis/client/client/OperationResponse {
 	public static final field Companion Lorg/litote/motis/client/client/RoutingClient$OneToAllResponse$Companion;
 	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public abstract fun getHeaders ()Lio/ktor/http/Headers;
@@ -1454,7 +1491,7 @@ public final class org/litote/motis/client/client/RoutingClient$OneToAllResponse
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/RoutingClient$OneToAllResponseFailure : org/litote/motis/client/client/RoutingClient$OneToAllResponse {
+public final class org/litote/motis/client/client/RoutingClient$OneToAllResponseFailure : org/litote/motis/client/client/RoutingClient$OneToAllResponse, org/litote/motis/client/client/OperationResponseFailure {
 	public static final field Companion Lorg/litote/motis/client/client/RoutingClient$OneToAllResponseFailure$Companion;
 	public fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -1463,7 +1500,8 @@ public final class org/litote/motis/client/client/RoutingClient$OneToAllResponse
 	public final fun copy (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/RoutingClient$OneToAllResponseFailure;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/RoutingClient$OneToAllResponseFailure;Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/RoutingClient$OneToAllResponseFailure;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/model/Error;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/model/Error;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -1484,7 +1522,7 @@ public final class org/litote/motis/client/client/RoutingClient$OneToAllResponse
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/RoutingClient$OneToAllResponseSuccess : org/litote/motis/client/client/RoutingClient$OneToAllResponse {
+public final class org/litote/motis/client/client/RoutingClient$OneToAllResponseSuccess : org/litote/motis/client/client/RoutingClient$OneToAllResponse, org/litote/motis/client/client/OperationResponseSuccess {
 	public static final field Companion Lorg/litote/motis/client/client/RoutingClient$OneToAllResponseSuccess$Companion;
 	public fun <init> (Lorg/litote/motis/client/model/Reachable;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/model/Reachable;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -1493,7 +1531,8 @@ public final class org/litote/motis/client/client/RoutingClient$OneToAllResponse
 	public final fun copy (Lorg/litote/motis/client/model/Reachable;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/RoutingClient$OneToAllResponseSuccess;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/RoutingClient$OneToAllResponseSuccess;Lorg/litote/motis/client/model/Reachable;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/RoutingClient$OneToAllResponseSuccess;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/model/Reachable;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/model/Reachable;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -1514,7 +1553,7 @@ public final class org/litote/motis/client/client/RoutingClient$OneToAllResponse
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/RoutingClient$OneToAllResponseUnknownFailure : org/litote/motis/client/client/RoutingClient$OneToAllResponse {
+public final class org/litote/motis/client/client/RoutingClient$OneToAllResponseUnknownFailure : org/litote/motis/client/client/RoutingClient$OneToAllResponse, org/litote/motis/client/client/OperationResponseUnknownFailure {
 	public static final field Companion Lorg/litote/motis/client/client/RoutingClient$OneToAllResponseUnknownFailure$Companion;
 	public fun <init> (ILio/ktor/http/Headers;)V
 	public synthetic fun <init> (ILio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -1524,7 +1563,7 @@ public final class org/litote/motis/client/client/RoutingClient$OneToAllResponse
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/RoutingClient$OneToAllResponseUnknownFailure;ILio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/RoutingClient$OneToAllResponseUnknownFailure;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getHeaders ()Lio/ktor/http/Headers;
-	public final fun getStatusCode ()I
+	public fun getStatusCode ()I
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -1544,7 +1583,7 @@ public final class org/litote/motis/client/client/RoutingClient$OneToAllResponse
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public abstract class org/litote/motis/client/client/RoutingClient$OneToManyIntermodalPostResponse {
+public abstract class org/litote/motis/client/client/RoutingClient$OneToManyIntermodalPostResponse : org/litote/motis/client/client/OperationResponse {
 	public static final field Companion Lorg/litote/motis/client/client/RoutingClient$OneToManyIntermodalPostResponse$Companion;
 	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public abstract fun getHeaders ()Lio/ktor/http/Headers;
@@ -1555,7 +1594,7 @@ public final class org/litote/motis/client/client/RoutingClient$OneToManyIntermo
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/RoutingClient$OneToManyIntermodalPostResponseFailure : org/litote/motis/client/client/RoutingClient$OneToManyIntermodalPostResponse {
+public final class org/litote/motis/client/client/RoutingClient$OneToManyIntermodalPostResponseFailure : org/litote/motis/client/client/RoutingClient$OneToManyIntermodalPostResponse, org/litote/motis/client/client/OperationResponseFailure {
 	public static final field Companion Lorg/litote/motis/client/client/RoutingClient$OneToManyIntermodalPostResponseFailure$Companion;
 	public fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -1564,7 +1603,8 @@ public final class org/litote/motis/client/client/RoutingClient$OneToManyIntermo
 	public final fun copy (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/RoutingClient$OneToManyIntermodalPostResponseFailure;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/RoutingClient$OneToManyIntermodalPostResponseFailure;Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/RoutingClient$OneToManyIntermodalPostResponseFailure;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/model/Error;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/model/Error;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -1585,7 +1625,7 @@ public final class org/litote/motis/client/client/RoutingClient$OneToManyIntermo
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/RoutingClient$OneToManyIntermodalPostResponseSuccess : org/litote/motis/client/client/RoutingClient$OneToManyIntermodalPostResponse {
+public final class org/litote/motis/client/client/RoutingClient$OneToManyIntermodalPostResponseSuccess : org/litote/motis/client/client/RoutingClient$OneToManyIntermodalPostResponse, org/litote/motis/client/client/OperationResponseSuccess {
 	public static final field Companion Lorg/litote/motis/client/client/RoutingClient$OneToManyIntermodalPostResponseSuccess$Companion;
 	public fun <init> (Lorg/litote/motis/client/model/OneToManyIntermodalResponse;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/model/OneToManyIntermodalResponse;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -1594,7 +1634,8 @@ public final class org/litote/motis/client/client/RoutingClient$OneToManyIntermo
 	public final fun copy (Lorg/litote/motis/client/model/OneToManyIntermodalResponse;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/RoutingClient$OneToManyIntermodalPostResponseSuccess;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/RoutingClient$OneToManyIntermodalPostResponseSuccess;Lorg/litote/motis/client/model/OneToManyIntermodalResponse;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/RoutingClient$OneToManyIntermodalPostResponseSuccess;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/model/OneToManyIntermodalResponse;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/model/OneToManyIntermodalResponse;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -1615,7 +1656,7 @@ public final class org/litote/motis/client/client/RoutingClient$OneToManyIntermo
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/RoutingClient$OneToManyIntermodalPostResponseUnknownFailure : org/litote/motis/client/client/RoutingClient$OneToManyIntermodalPostResponse {
+public final class org/litote/motis/client/client/RoutingClient$OneToManyIntermodalPostResponseUnknownFailure : org/litote/motis/client/client/RoutingClient$OneToManyIntermodalPostResponse, org/litote/motis/client/client/OperationResponseUnknownFailure {
 	public static final field Companion Lorg/litote/motis/client/client/RoutingClient$OneToManyIntermodalPostResponseUnknownFailure$Companion;
 	public fun <init> (ILio/ktor/http/Headers;)V
 	public synthetic fun <init> (ILio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -1625,7 +1666,7 @@ public final class org/litote/motis/client/client/RoutingClient$OneToManyIntermo
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/RoutingClient$OneToManyIntermodalPostResponseUnknownFailure;ILio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/RoutingClient$OneToManyIntermodalPostResponseUnknownFailure;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getHeaders ()Lio/ktor/http/Headers;
-	public final fun getStatusCode ()I
+	public fun getStatusCode ()I
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -1645,7 +1686,7 @@ public final class org/litote/motis/client/client/RoutingClient$OneToManyIntermo
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public abstract class org/litote/motis/client/client/RoutingClient$OneToManyIntermodalResponse {
+public abstract class org/litote/motis/client/client/RoutingClient$OneToManyIntermodalResponse : org/litote/motis/client/client/OperationResponse {
 	public static final field Companion Lorg/litote/motis/client/client/RoutingClient$OneToManyIntermodalResponse$Companion;
 	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public abstract fun getHeaders ()Lio/ktor/http/Headers;
@@ -1656,7 +1697,7 @@ public final class org/litote/motis/client/client/RoutingClient$OneToManyIntermo
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/RoutingClient$OneToManyIntermodalResponseFailure : org/litote/motis/client/client/RoutingClient$OneToManyIntermodalResponse {
+public final class org/litote/motis/client/client/RoutingClient$OneToManyIntermodalResponseFailure : org/litote/motis/client/client/RoutingClient$OneToManyIntermodalResponse, org/litote/motis/client/client/OperationResponseFailure {
 	public static final field Companion Lorg/litote/motis/client/client/RoutingClient$OneToManyIntermodalResponseFailure$Companion;
 	public fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -1665,7 +1706,8 @@ public final class org/litote/motis/client/client/RoutingClient$OneToManyIntermo
 	public final fun copy (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/RoutingClient$OneToManyIntermodalResponseFailure;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/RoutingClient$OneToManyIntermodalResponseFailure;Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/RoutingClient$OneToManyIntermodalResponseFailure;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/model/Error;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/model/Error;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -1686,7 +1728,7 @@ public final class org/litote/motis/client/client/RoutingClient$OneToManyIntermo
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/RoutingClient$OneToManyIntermodalResponseSuccess : org/litote/motis/client/client/RoutingClient$OneToManyIntermodalResponse {
+public final class org/litote/motis/client/client/RoutingClient$OneToManyIntermodalResponseSuccess : org/litote/motis/client/client/RoutingClient$OneToManyIntermodalResponse, org/litote/motis/client/client/OperationResponseSuccess {
 	public static final field Companion Lorg/litote/motis/client/client/RoutingClient$OneToManyIntermodalResponseSuccess$Companion;
 	public fun <init> (Lorg/litote/motis/client/model/OneToManyIntermodalResponse;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/model/OneToManyIntermodalResponse;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -1695,7 +1737,8 @@ public final class org/litote/motis/client/client/RoutingClient$OneToManyIntermo
 	public final fun copy (Lorg/litote/motis/client/model/OneToManyIntermodalResponse;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/RoutingClient$OneToManyIntermodalResponseSuccess;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/RoutingClient$OneToManyIntermodalResponseSuccess;Lorg/litote/motis/client/model/OneToManyIntermodalResponse;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/RoutingClient$OneToManyIntermodalResponseSuccess;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/model/OneToManyIntermodalResponse;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/model/OneToManyIntermodalResponse;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -1716,7 +1759,7 @@ public final class org/litote/motis/client/client/RoutingClient$OneToManyIntermo
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/RoutingClient$OneToManyIntermodalResponseUnknownFailure : org/litote/motis/client/client/RoutingClient$OneToManyIntermodalResponse {
+public final class org/litote/motis/client/client/RoutingClient$OneToManyIntermodalResponseUnknownFailure : org/litote/motis/client/client/RoutingClient$OneToManyIntermodalResponse, org/litote/motis/client/client/OperationResponseUnknownFailure {
 	public static final field Companion Lorg/litote/motis/client/client/RoutingClient$OneToManyIntermodalResponseUnknownFailure$Companion;
 	public fun <init> (ILio/ktor/http/Headers;)V
 	public synthetic fun <init> (ILio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -1726,7 +1769,7 @@ public final class org/litote/motis/client/client/RoutingClient$OneToManyIntermo
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/RoutingClient$OneToManyIntermodalResponseUnknownFailure;ILio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/RoutingClient$OneToManyIntermodalResponseUnknownFailure;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getHeaders ()Lio/ktor/http/Headers;
-	public final fun getStatusCode ()I
+	public fun getStatusCode ()I
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -1746,7 +1789,7 @@ public final class org/litote/motis/client/client/RoutingClient$OneToManyIntermo
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public abstract class org/litote/motis/client/client/RoutingClient$OneToManyPostResponse {
+public abstract class org/litote/motis/client/client/RoutingClient$OneToManyPostResponse : org/litote/motis/client/client/OperationResponse {
 	public static final field Companion Lorg/litote/motis/client/client/RoutingClient$OneToManyPostResponse$Companion;
 	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public abstract fun getHeaders ()Lio/ktor/http/Headers;
@@ -1757,7 +1800,7 @@ public final class org/litote/motis/client/client/RoutingClient$OneToManyPostRes
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/RoutingClient$OneToManyPostResponseFailure : org/litote/motis/client/client/RoutingClient$OneToManyPostResponse {
+public final class org/litote/motis/client/client/RoutingClient$OneToManyPostResponseFailure : org/litote/motis/client/client/RoutingClient$OneToManyPostResponse, org/litote/motis/client/client/OperationResponseFailure {
 	public static final field Companion Lorg/litote/motis/client/client/RoutingClient$OneToManyPostResponseFailure$Companion;
 	public fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -1766,7 +1809,8 @@ public final class org/litote/motis/client/client/RoutingClient$OneToManyPostRes
 	public final fun copy (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/RoutingClient$OneToManyPostResponseFailure;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/RoutingClient$OneToManyPostResponseFailure;Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/RoutingClient$OneToManyPostResponseFailure;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/model/Error;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/model/Error;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -1787,7 +1831,7 @@ public final class org/litote/motis/client/client/RoutingClient$OneToManyPostRes
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/RoutingClient$OneToManyPostResponseSuccess : org/litote/motis/client/client/RoutingClient$OneToManyPostResponse {
+public final class org/litote/motis/client/client/RoutingClient$OneToManyPostResponseSuccess : org/litote/motis/client/client/RoutingClient$OneToManyPostResponse, org/litote/motis/client/client/OperationResponseSuccess {
 	public static final field Companion Lorg/litote/motis/client/client/RoutingClient$OneToManyPostResponseSuccess$Companion;
 	public fun <init> (Ljava/util/List;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Ljava/util/List;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -1796,7 +1840,8 @@ public final class org/litote/motis/client/client/RoutingClient$OneToManyPostRes
 	public final fun copy (Ljava/util/List;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/RoutingClient$OneToManyPostResponseSuccess;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/RoutingClient$OneToManyPostResponseSuccess;Ljava/util/List;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/RoutingClient$OneToManyPostResponseSuccess;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Ljava/util/List;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Ljava/util/List;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -1817,7 +1862,7 @@ public final class org/litote/motis/client/client/RoutingClient$OneToManyPostRes
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/RoutingClient$OneToManyPostResponseUnknownFailure : org/litote/motis/client/client/RoutingClient$OneToManyPostResponse {
+public final class org/litote/motis/client/client/RoutingClient$OneToManyPostResponseUnknownFailure : org/litote/motis/client/client/RoutingClient$OneToManyPostResponse, org/litote/motis/client/client/OperationResponseUnknownFailure {
 	public static final field Companion Lorg/litote/motis/client/client/RoutingClient$OneToManyPostResponseUnknownFailure$Companion;
 	public fun <init> (ILio/ktor/http/Headers;)V
 	public synthetic fun <init> (ILio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -1827,7 +1872,7 @@ public final class org/litote/motis/client/client/RoutingClient$OneToManyPostRes
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/RoutingClient$OneToManyPostResponseUnknownFailure;ILio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/RoutingClient$OneToManyPostResponseUnknownFailure;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getHeaders ()Lio/ktor/http/Headers;
-	public final fun getStatusCode ()I
+	public fun getStatusCode ()I
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -1847,7 +1892,7 @@ public final class org/litote/motis/client/client/RoutingClient$OneToManyPostRes
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public abstract class org/litote/motis/client/client/RoutingClient$OneToManyResponse {
+public abstract class org/litote/motis/client/client/RoutingClient$OneToManyResponse : org/litote/motis/client/client/OperationResponse {
 	public static final field Companion Lorg/litote/motis/client/client/RoutingClient$OneToManyResponse$Companion;
 	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public abstract fun getHeaders ()Lio/ktor/http/Headers;
@@ -1858,7 +1903,7 @@ public final class org/litote/motis/client/client/RoutingClient$OneToManyRespons
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/RoutingClient$OneToManyResponseFailure : org/litote/motis/client/client/RoutingClient$OneToManyResponse {
+public final class org/litote/motis/client/client/RoutingClient$OneToManyResponseFailure : org/litote/motis/client/client/RoutingClient$OneToManyResponse, org/litote/motis/client/client/OperationResponseFailure {
 	public static final field Companion Lorg/litote/motis/client/client/RoutingClient$OneToManyResponseFailure$Companion;
 	public fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -1867,7 +1912,8 @@ public final class org/litote/motis/client/client/RoutingClient$OneToManyRespons
 	public final fun copy (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/RoutingClient$OneToManyResponseFailure;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/RoutingClient$OneToManyResponseFailure;Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/RoutingClient$OneToManyResponseFailure;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/model/Error;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/model/Error;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -1888,7 +1934,7 @@ public final class org/litote/motis/client/client/RoutingClient$OneToManyRespons
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/RoutingClient$OneToManyResponseSuccess : org/litote/motis/client/client/RoutingClient$OneToManyResponse {
+public final class org/litote/motis/client/client/RoutingClient$OneToManyResponseSuccess : org/litote/motis/client/client/RoutingClient$OneToManyResponse, org/litote/motis/client/client/OperationResponseSuccess {
 	public static final field Companion Lorg/litote/motis/client/client/RoutingClient$OneToManyResponseSuccess$Companion;
 	public fun <init> (Ljava/util/List;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Ljava/util/List;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -1897,7 +1943,8 @@ public final class org/litote/motis/client/client/RoutingClient$OneToManyRespons
 	public final fun copy (Ljava/util/List;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/RoutingClient$OneToManyResponseSuccess;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/RoutingClient$OneToManyResponseSuccess;Ljava/util/List;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/RoutingClient$OneToManyResponseSuccess;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Ljava/util/List;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Ljava/util/List;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -1918,7 +1965,7 @@ public final class org/litote/motis/client/client/RoutingClient$OneToManyRespons
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/RoutingClient$OneToManyResponseUnknownFailure : org/litote/motis/client/client/RoutingClient$OneToManyResponse {
+public final class org/litote/motis/client/client/RoutingClient$OneToManyResponseUnknownFailure : org/litote/motis/client/client/RoutingClient$OneToManyResponse, org/litote/motis/client/client/OperationResponseUnknownFailure {
 	public static final field Companion Lorg/litote/motis/client/client/RoutingClient$OneToManyResponseUnknownFailure$Companion;
 	public fun <init> (ILio/ktor/http/Headers;)V
 	public synthetic fun <init> (ILio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -1928,7 +1975,7 @@ public final class org/litote/motis/client/client/RoutingClient$OneToManyRespons
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/RoutingClient$OneToManyResponseUnknownFailure;ILio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/RoutingClient$OneToManyResponseUnknownFailure;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getHeaders ()Lio/ktor/http/Headers;
-	public final fun getStatusCode ()I
+	public fun getStatusCode ()I
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -1948,7 +1995,7 @@ public final class org/litote/motis/client/client/RoutingClient$OneToManyRespons
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public abstract class org/litote/motis/client/client/RoutingClient$PlanResponse {
+public abstract class org/litote/motis/client/client/RoutingClient$PlanResponse : org/litote/motis/client/client/OperationResponse {
 	public static final field Companion Lorg/litote/motis/client/client/RoutingClient$PlanResponse$Companion;
 	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public abstract fun getHeaders ()Lio/ktor/http/Headers;
@@ -2000,7 +2047,7 @@ public final class org/litote/motis/client/client/RoutingClient$PlanResponseBody
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/RoutingClient$PlanResponseFailure : org/litote/motis/client/client/RoutingClient$PlanResponse {
+public final class org/litote/motis/client/client/RoutingClient$PlanResponseFailure : org/litote/motis/client/client/RoutingClient$PlanResponse, org/litote/motis/client/client/OperationResponseFailure {
 	public static final field Companion Lorg/litote/motis/client/client/RoutingClient$PlanResponseFailure$Companion;
 	public fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -2009,7 +2056,8 @@ public final class org/litote/motis/client/client/RoutingClient$PlanResponseFail
 	public final fun copy (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/RoutingClient$PlanResponseFailure;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/RoutingClient$PlanResponseFailure;Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/RoutingClient$PlanResponseFailure;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/model/Error;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/model/Error;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -2030,7 +2078,7 @@ public final class org/litote/motis/client/client/RoutingClient$PlanResponseFail
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/RoutingClient$PlanResponseSuccess : org/litote/motis/client/client/RoutingClient$PlanResponse {
+public final class org/litote/motis/client/client/RoutingClient$PlanResponseSuccess : org/litote/motis/client/client/RoutingClient$PlanResponse, org/litote/motis/client/client/OperationResponseSuccess {
 	public static final field Companion Lorg/litote/motis/client/client/RoutingClient$PlanResponseSuccess$Companion;
 	public fun <init> (Lorg/litote/motis/client/client/RoutingClient$PlanResponseBody;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/client/RoutingClient$PlanResponseBody;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -2039,7 +2087,8 @@ public final class org/litote/motis/client/client/RoutingClient$PlanResponseSucc
 	public final fun copy (Lorg/litote/motis/client/client/RoutingClient$PlanResponseBody;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/RoutingClient$PlanResponseSuccess;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/RoutingClient$PlanResponseSuccess;Lorg/litote/motis/client/client/RoutingClient$PlanResponseBody;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/RoutingClient$PlanResponseSuccess;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/client/RoutingClient$PlanResponseBody;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/client/RoutingClient$PlanResponseBody;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -2060,7 +2109,7 @@ public final class org/litote/motis/client/client/RoutingClient$PlanResponseSucc
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/RoutingClient$PlanResponseUnknownFailure : org/litote/motis/client/client/RoutingClient$PlanResponse {
+public final class org/litote/motis/client/client/RoutingClient$PlanResponseUnknownFailure : org/litote/motis/client/client/RoutingClient$PlanResponse, org/litote/motis/client/client/OperationResponseUnknownFailure {
 	public static final field Companion Lorg/litote/motis/client/client/RoutingClient$PlanResponseUnknownFailure$Companion;
 	public fun <init> (ILio/ktor/http/Headers;)V
 	public synthetic fun <init> (ILio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -2070,7 +2119,7 @@ public final class org/litote/motis/client/client/RoutingClient$PlanResponseUnkn
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/RoutingClient$PlanResponseUnknownFailure;ILio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/RoutingClient$PlanResponseUnknownFailure;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getHeaders ()Lio/ktor/http/Headers;
-	public final fun getStatusCode ()I
+	public fun getStatusCode ()I
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -2125,7 +2174,7 @@ public final class org/litote/motis/client/client/TimetableClient$Direction$Comp
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public abstract class org/litote/motis/client/client/TimetableClient$RefreshItineraryPostResponse {
+public abstract class org/litote/motis/client/client/TimetableClient$RefreshItineraryPostResponse : org/litote/motis/client/client/OperationResponse {
 	public static final field Companion Lorg/litote/motis/client/client/TimetableClient$RefreshItineraryPostResponse$Companion;
 	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public abstract fun getHeaders ()Lio/ktor/http/Headers;
@@ -2136,7 +2185,7 @@ public final class org/litote/motis/client/client/TimetableClient$RefreshItinera
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/TimetableClient$RefreshItineraryPostResponseFailure : org/litote/motis/client/client/TimetableClient$RefreshItineraryPostResponse {
+public final class org/litote/motis/client/client/TimetableClient$RefreshItineraryPostResponseFailure : org/litote/motis/client/client/TimetableClient$RefreshItineraryPostResponse, org/litote/motis/client/client/OperationResponseFailure {
 	public static final field Companion Lorg/litote/motis/client/client/TimetableClient$RefreshItineraryPostResponseFailure$Companion;
 	public fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -2145,7 +2194,8 @@ public final class org/litote/motis/client/client/TimetableClient$RefreshItinera
 	public final fun copy (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/TimetableClient$RefreshItineraryPostResponseFailure;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/TimetableClient$RefreshItineraryPostResponseFailure;Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/TimetableClient$RefreshItineraryPostResponseFailure;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/model/Error;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/model/Error;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -2166,7 +2216,7 @@ public final class org/litote/motis/client/client/TimetableClient$RefreshItinera
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/TimetableClient$RefreshItineraryPostResponseSuccess : org/litote/motis/client/client/TimetableClient$RefreshItineraryPostResponse {
+public final class org/litote/motis/client/client/TimetableClient$RefreshItineraryPostResponseSuccess : org/litote/motis/client/client/TimetableClient$RefreshItineraryPostResponse, org/litote/motis/client/client/OperationResponseSuccess {
 	public static final field Companion Lorg/litote/motis/client/client/TimetableClient$RefreshItineraryPostResponseSuccess$Companion;
 	public fun <init> (Lorg/litote/motis/client/model/Itinerary;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/model/Itinerary;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -2175,7 +2225,8 @@ public final class org/litote/motis/client/client/TimetableClient$RefreshItinera
 	public final fun copy (Lorg/litote/motis/client/model/Itinerary;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/TimetableClient$RefreshItineraryPostResponseSuccess;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/TimetableClient$RefreshItineraryPostResponseSuccess;Lorg/litote/motis/client/model/Itinerary;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/TimetableClient$RefreshItineraryPostResponseSuccess;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/model/Itinerary;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/model/Itinerary;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -2196,7 +2247,7 @@ public final class org/litote/motis/client/client/TimetableClient$RefreshItinera
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/TimetableClient$RefreshItineraryPostResponseUnknownFailure : org/litote/motis/client/client/TimetableClient$RefreshItineraryPostResponse {
+public final class org/litote/motis/client/client/TimetableClient$RefreshItineraryPostResponseUnknownFailure : org/litote/motis/client/client/TimetableClient$RefreshItineraryPostResponse, org/litote/motis/client/client/OperationResponseUnknownFailure {
 	public static final field Companion Lorg/litote/motis/client/client/TimetableClient$RefreshItineraryPostResponseUnknownFailure$Companion;
 	public fun <init> (ILio/ktor/http/Headers;)V
 	public synthetic fun <init> (ILio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -2206,7 +2257,7 @@ public final class org/litote/motis/client/client/TimetableClient$RefreshItinera
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/TimetableClient$RefreshItineraryPostResponseUnknownFailure;ILio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/TimetableClient$RefreshItineraryPostResponseUnknownFailure;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getHeaders ()Lio/ktor/http/Headers;
-	public final fun getStatusCode ()I
+	public fun getStatusCode ()I
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -2226,7 +2277,7 @@ public final class org/litote/motis/client/client/TimetableClient$RefreshItinera
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public abstract class org/litote/motis/client/client/TimetableClient$RefreshItineraryResponse {
+public abstract class org/litote/motis/client/client/TimetableClient$RefreshItineraryResponse : org/litote/motis/client/client/OperationResponse {
 	public static final field Companion Lorg/litote/motis/client/client/TimetableClient$RefreshItineraryResponse$Companion;
 	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public abstract fun getHeaders ()Lio/ktor/http/Headers;
@@ -2237,7 +2288,7 @@ public final class org/litote/motis/client/client/TimetableClient$RefreshItinera
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/TimetableClient$RefreshItineraryResponseFailure : org/litote/motis/client/client/TimetableClient$RefreshItineraryResponse {
+public final class org/litote/motis/client/client/TimetableClient$RefreshItineraryResponseFailure : org/litote/motis/client/client/TimetableClient$RefreshItineraryResponse, org/litote/motis/client/client/OperationResponseFailure {
 	public static final field Companion Lorg/litote/motis/client/client/TimetableClient$RefreshItineraryResponseFailure$Companion;
 	public fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -2246,7 +2297,8 @@ public final class org/litote/motis/client/client/TimetableClient$RefreshItinera
 	public final fun copy (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/TimetableClient$RefreshItineraryResponseFailure;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/TimetableClient$RefreshItineraryResponseFailure;Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/TimetableClient$RefreshItineraryResponseFailure;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/model/Error;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/model/Error;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -2267,7 +2319,7 @@ public final class org/litote/motis/client/client/TimetableClient$RefreshItinera
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/TimetableClient$RefreshItineraryResponseSuccess : org/litote/motis/client/client/TimetableClient$RefreshItineraryResponse {
+public final class org/litote/motis/client/client/TimetableClient$RefreshItineraryResponseSuccess : org/litote/motis/client/client/TimetableClient$RefreshItineraryResponse, org/litote/motis/client/client/OperationResponseSuccess {
 	public static final field Companion Lorg/litote/motis/client/client/TimetableClient$RefreshItineraryResponseSuccess$Companion;
 	public fun <init> (Lorg/litote/motis/client/model/Itinerary;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/model/Itinerary;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -2276,7 +2328,8 @@ public final class org/litote/motis/client/client/TimetableClient$RefreshItinera
 	public final fun copy (Lorg/litote/motis/client/model/Itinerary;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/TimetableClient$RefreshItineraryResponseSuccess;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/TimetableClient$RefreshItineraryResponseSuccess;Lorg/litote/motis/client/model/Itinerary;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/TimetableClient$RefreshItineraryResponseSuccess;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/model/Itinerary;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/model/Itinerary;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -2297,7 +2350,7 @@ public final class org/litote/motis/client/client/TimetableClient$RefreshItinera
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/TimetableClient$RefreshItineraryResponseUnknownFailure : org/litote/motis/client/client/TimetableClient$RefreshItineraryResponse {
+public final class org/litote/motis/client/client/TimetableClient$RefreshItineraryResponseUnknownFailure : org/litote/motis/client/client/TimetableClient$RefreshItineraryResponse, org/litote/motis/client/client/OperationResponseUnknownFailure {
 	public static final field Companion Lorg/litote/motis/client/client/TimetableClient$RefreshItineraryResponseUnknownFailure$Companion;
 	public fun <init> (ILio/ktor/http/Headers;)V
 	public synthetic fun <init> (ILio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -2307,7 +2360,7 @@ public final class org/litote/motis/client/client/TimetableClient$RefreshItinera
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/TimetableClient$RefreshItineraryResponseUnknownFailure;ILio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/TimetableClient$RefreshItineraryResponseUnknownFailure;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getHeaders ()Lio/ktor/http/Headers;
-	public final fun getStatusCode ()I
+	public fun getStatusCode ()I
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -2327,7 +2380,7 @@ public final class org/litote/motis/client/client/TimetableClient$RefreshItinera
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public abstract class org/litote/motis/client/client/TimetableClient$StoptimesResponse {
+public abstract class org/litote/motis/client/client/TimetableClient$StoptimesResponse : org/litote/motis/client/client/OperationResponse {
 	public static final field Companion Lorg/litote/motis/client/client/TimetableClient$StoptimesResponse$Companion;
 	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public abstract fun getHeaders ()Lio/ktor/http/Headers;
@@ -2371,7 +2424,7 @@ public final class org/litote/motis/client/client/TimetableClient$StoptimesRespo
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/TimetableClient$StoptimesResponseFailure : org/litote/motis/client/client/TimetableClient$StoptimesResponse {
+public final class org/litote/motis/client/client/TimetableClient$StoptimesResponseFailure : org/litote/motis/client/client/TimetableClient$StoptimesResponse, org/litote/motis/client/client/OperationResponseFailure {
 	public static final field Companion Lorg/litote/motis/client/client/TimetableClient$StoptimesResponseFailure$Companion;
 	public fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -2380,7 +2433,8 @@ public final class org/litote/motis/client/client/TimetableClient$StoptimesRespo
 	public final fun copy (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/TimetableClient$StoptimesResponseFailure;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/TimetableClient$StoptimesResponseFailure;Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/TimetableClient$StoptimesResponseFailure;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/model/Error;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/model/Error;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -2401,7 +2455,7 @@ public final class org/litote/motis/client/client/TimetableClient$StoptimesRespo
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/TimetableClient$StoptimesResponseSuccess : org/litote/motis/client/client/TimetableClient$StoptimesResponse {
+public final class org/litote/motis/client/client/TimetableClient$StoptimesResponseSuccess : org/litote/motis/client/client/TimetableClient$StoptimesResponse, org/litote/motis/client/client/OperationResponseSuccess {
 	public static final field Companion Lorg/litote/motis/client/client/TimetableClient$StoptimesResponseSuccess$Companion;
 	public fun <init> (Lorg/litote/motis/client/client/TimetableClient$StoptimesResponseBody;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/client/TimetableClient$StoptimesResponseBody;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -2410,7 +2464,8 @@ public final class org/litote/motis/client/client/TimetableClient$StoptimesRespo
 	public final fun copy (Lorg/litote/motis/client/client/TimetableClient$StoptimesResponseBody;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/TimetableClient$StoptimesResponseSuccess;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/TimetableClient$StoptimesResponseSuccess;Lorg/litote/motis/client/client/TimetableClient$StoptimesResponseBody;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/TimetableClient$StoptimesResponseSuccess;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/client/TimetableClient$StoptimesResponseBody;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/client/TimetableClient$StoptimesResponseBody;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -2431,7 +2486,7 @@ public final class org/litote/motis/client/client/TimetableClient$StoptimesRespo
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/TimetableClient$StoptimesResponseUnknownFailure : org/litote/motis/client/client/TimetableClient$StoptimesResponse {
+public final class org/litote/motis/client/client/TimetableClient$StoptimesResponseUnknownFailure : org/litote/motis/client/client/TimetableClient$StoptimesResponse, org/litote/motis/client/client/OperationResponseUnknownFailure {
 	public static final field Companion Lorg/litote/motis/client/client/TimetableClient$StoptimesResponseUnknownFailure$Companion;
 	public fun <init> (ILio/ktor/http/Headers;)V
 	public synthetic fun <init> (ILio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -2441,7 +2496,7 @@ public final class org/litote/motis/client/client/TimetableClient$StoptimesRespo
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/TimetableClient$StoptimesResponseUnknownFailure;ILio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/TimetableClient$StoptimesResponseUnknownFailure;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getHeaders ()Lio/ktor/http/Headers;
-	public final fun getStatusCode ()I
+	public fun getStatusCode ()I
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -2461,7 +2516,7 @@ public final class org/litote/motis/client/client/TimetableClient$StoptimesRespo
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public abstract class org/litote/motis/client/client/TimetableClient$TripResponse {
+public abstract class org/litote/motis/client/client/TimetableClient$TripResponse : org/litote/motis/client/client/OperationResponse {
 	public static final field Companion Lorg/litote/motis/client/client/TimetableClient$TripResponse$Companion;
 	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public abstract fun getHeaders ()Lio/ktor/http/Headers;
@@ -2472,7 +2527,7 @@ public final class org/litote/motis/client/client/TimetableClient$TripResponse$C
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/TimetableClient$TripResponseFailure : org/litote/motis/client/client/TimetableClient$TripResponse {
+public final class org/litote/motis/client/client/TimetableClient$TripResponseFailure : org/litote/motis/client/client/TimetableClient$TripResponse, org/litote/motis/client/client/OperationResponseFailure {
 	public static final field Companion Lorg/litote/motis/client/client/TimetableClient$TripResponseFailure$Companion;
 	public fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -2481,7 +2536,8 @@ public final class org/litote/motis/client/client/TimetableClient$TripResponseFa
 	public final fun copy (Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/TimetableClient$TripResponseFailure;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/TimetableClient$TripResponseFailure;Lorg/litote/motis/client/model/Error;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/TimetableClient$TripResponseFailure;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/model/Error;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/model/Error;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -2502,7 +2558,7 @@ public final class org/litote/motis/client/client/TimetableClient$TripResponseFa
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/TimetableClient$TripResponseSuccess : org/litote/motis/client/client/TimetableClient$TripResponse {
+public final class org/litote/motis/client/client/TimetableClient$TripResponseSuccess : org/litote/motis/client/client/TimetableClient$TripResponse, org/litote/motis/client/client/OperationResponseSuccess {
 	public static final field Companion Lorg/litote/motis/client/client/TimetableClient$TripResponseSuccess$Companion;
 	public fun <init> (Lorg/litote/motis/client/model/Itinerary;Lio/ktor/http/Headers;)V
 	public synthetic fun <init> (Lorg/litote/motis/client/model/Itinerary;Lio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -2511,7 +2567,8 @@ public final class org/litote/motis/client/client/TimetableClient$TripResponseSu
 	public final fun copy (Lorg/litote/motis/client/model/Itinerary;Lio/ktor/http/Headers;)Lorg/litote/motis/client/client/TimetableClient$TripResponseSuccess;
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/TimetableClient$TripResponseSuccess;Lorg/litote/motis/client/model/Itinerary;Lio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/TimetableClient$TripResponseSuccess;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBody ()Lorg/litote/motis/client/model/Itinerary;
+	public synthetic fun getBody ()Ljava/lang/Object;
+	public fun getBody ()Lorg/litote/motis/client/model/Itinerary;
 	public fun getHeaders ()Lio/ktor/http/Headers;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -2532,7 +2589,7 @@ public final class org/litote/motis/client/client/TimetableClient$TripResponseSu
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class org/litote/motis/client/client/TimetableClient$TripResponseUnknownFailure : org/litote/motis/client/client/TimetableClient$TripResponse {
+public final class org/litote/motis/client/client/TimetableClient$TripResponseUnknownFailure : org/litote/motis/client/client/TimetableClient$TripResponse, org/litote/motis/client/client/OperationResponseUnknownFailure {
 	public static final field Companion Lorg/litote/motis/client/client/TimetableClient$TripResponseUnknownFailure$Companion;
 	public fun <init> (ILio/ktor/http/Headers;)V
 	public synthetic fun <init> (ILio/ktor/http/Headers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -2542,7 +2599,7 @@ public final class org/litote/motis/client/client/TimetableClient$TripResponseUn
 	public static synthetic fun copy$default (Lorg/litote/motis/client/client/TimetableClient$TripResponseUnknownFailure;ILio/ktor/http/Headers;ILjava/lang/Object;)Lorg/litote/motis/client/client/TimetableClient$TripResponseUnknownFailure;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getHeaders ()Lio/ktor/http/Headers;
-	public final fun getStatusCode ()I
+	public fun getStatusCode ()I
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
