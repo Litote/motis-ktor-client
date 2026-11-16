@@ -223,160 +223,178 @@ public interface RoutingClient {
   )
 
   @Serializable
-  public sealed class PlanResponse {
-    public abstract val headers: Headers
+  public sealed class PlanResponse : OperationResponse<PlanResponseBody> {
+    abstract override val headers: Headers
   }
 
   @Serializable
   public data class PlanResponseSuccess(
-    public val body: PlanResponseBody,
+    override val body: PlanResponseBody,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : PlanResponse()
+  ) : PlanResponse(),
+      OperationResponseSuccess<PlanResponseBody>
 
   @Serializable
   public data class PlanResponseFailure(
-    public val body: Error,
+    override val body: Error,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : PlanResponse()
+  ) : PlanResponse(),
+      OperationResponseFailure<Error>
 
   @Serializable
   public data class PlanResponseUnknownFailure(
-    public val statusCode: Int,
+    override val statusCode: Int,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : PlanResponse()
+  ) : PlanResponse(),
+      OperationResponseUnknownFailure
 
   @Serializable
-  public sealed class OneToManyResponse {
-    public abstract val headers: Headers
+  public sealed class OneToManyResponse : OperationResponse<List<Duration>> {
+    abstract override val headers: Headers
   }
 
   @Serializable
   public data class OneToManyResponseSuccess(
-    public val body: List<Duration>,
+    override val body: List<Duration>,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : OneToManyResponse()
+  ) : OneToManyResponse(),
+      OperationResponseSuccess<List<Duration>>
 
   @Serializable
   public data class OneToManyResponseFailure(
-    public val body: Error,
+    override val body: Error,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : OneToManyResponse()
+  ) : OneToManyResponse(),
+      OperationResponseFailure<Error>
 
   @Serializable
   public data class OneToManyResponseUnknownFailure(
-    public val statusCode: Int,
+    override val statusCode: Int,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : OneToManyResponse()
+  ) : OneToManyResponse(),
+      OperationResponseUnknownFailure
 
   @Serializable
-  public sealed class OneToManyPostResponse {
-    public abstract val headers: Headers
+  public sealed class OneToManyPostResponse : OperationResponse<List<Duration>> {
+    abstract override val headers: Headers
   }
 
   @Serializable
   public data class OneToManyPostResponseSuccess(
-    public val body: List<Duration>,
+    override val body: List<Duration>,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : OneToManyPostResponse()
+  ) : OneToManyPostResponse(),
+      OperationResponseSuccess<List<Duration>>
 
   @Serializable
   public data class OneToManyPostResponseFailure(
-    public val body: Error,
+    override val body: Error,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : OneToManyPostResponse()
+  ) : OneToManyPostResponse(),
+      OperationResponseFailure<Error>
 
   @Serializable
   public data class OneToManyPostResponseUnknownFailure(
-    public val statusCode: Int,
+    override val statusCode: Int,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : OneToManyPostResponse()
+  ) : OneToManyPostResponse(),
+      OperationResponseUnknownFailure
 
   @Serializable
-  public sealed class OneToManyIntermodalResponse {
-    public abstract val headers: Headers
+  public sealed class OneToManyIntermodalResponse : OperationResponse<org.litote.motis.client.model.OneToManyIntermodalResponse> {
+    abstract override val headers: Headers
   }
 
   @Serializable
   public data class OneToManyIntermodalResponseSuccess(
-    public val body: org.litote.motis.client.model.OneToManyIntermodalResponse,
+    override val body: org.litote.motis.client.model.OneToManyIntermodalResponse,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : OneToManyIntermodalResponse()
+  ) : OneToManyIntermodalResponse(),
+      OperationResponseSuccess<org.litote.motis.client.model.OneToManyIntermodalResponse>
 
   @Serializable
   public data class OneToManyIntermodalResponseFailure(
-    public val body: Error,
+    override val body: Error,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : OneToManyIntermodalResponse()
+  ) : OneToManyIntermodalResponse(),
+      OperationResponseFailure<Error>
 
   @Serializable
   public data class OneToManyIntermodalResponseUnknownFailure(
-    public val statusCode: Int,
+    override val statusCode: Int,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : OneToManyIntermodalResponse()
+  ) : OneToManyIntermodalResponse(),
+      OperationResponseUnknownFailure
 
   @Serializable
-  public sealed class OneToManyIntermodalPostResponse {
-    public abstract val headers: Headers
+  public sealed class OneToManyIntermodalPostResponse : OperationResponse<org.litote.motis.client.model.OneToManyIntermodalResponse> {
+    abstract override val headers: Headers
   }
 
   @Serializable
   public data class OneToManyIntermodalPostResponseSuccess(
-    public val body: org.litote.motis.client.model.OneToManyIntermodalResponse,
+    override val body: org.litote.motis.client.model.OneToManyIntermodalResponse,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : OneToManyIntermodalPostResponse()
+  ) : OneToManyIntermodalPostResponse(),
+      OperationResponseSuccess<org.litote.motis.client.model.OneToManyIntermodalResponse>
 
   @Serializable
   public data class OneToManyIntermodalPostResponseFailure(
-    public val body: Error,
+    override val body: Error,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : OneToManyIntermodalPostResponse()
+  ) : OneToManyIntermodalPostResponse(),
+      OperationResponseFailure<Error>
 
   @Serializable
   public data class OneToManyIntermodalPostResponseUnknownFailure(
-    public val statusCode: Int,
+    override val statusCode: Int,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : OneToManyIntermodalPostResponse()
+  ) : OneToManyIntermodalPostResponse(),
+      OperationResponseUnknownFailure
 
   @Serializable
-  public sealed class OneToAllResponse {
-    public abstract val headers: Headers
+  public sealed class OneToAllResponse : OperationResponse<Reachable> {
+    abstract override val headers: Headers
   }
 
   @Serializable
   public data class OneToAllResponseSuccess(
-    public val body: Reachable,
+    override val body: Reachable,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : OneToAllResponse()
+  ) : OneToAllResponse(),
+      OperationResponseSuccess<Reachable>
 
   @Serializable
   public data class OneToAllResponseFailure(
-    public val body: Error,
+    override val body: Error,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : OneToAllResponse()
+  ) : OneToAllResponse(),
+      OperationResponseFailure<Error>
 
   @Serializable
   public data class OneToAllResponseUnknownFailure(
-    public val statusCode: Int,
+    override val statusCode: Int,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : OneToAllResponse()
+  ) : OneToAllResponse(),
+      OperationResponseUnknownFailure
 }
 
 public fun RoutingClient(configuration: ClientConfiguration = defaultClientConfiguration): RoutingClient = DefaultRoutingClient(configuration)

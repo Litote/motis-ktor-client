@@ -14,30 +14,33 @@ public interface Client {
   public suspend fun health(): HealthResponse
 
   @Serializable
-  public sealed class HealthResponse {
-    public abstract val headers: Headers
+  public sealed class HealthResponse : OperationResponse<org.litote.motis.client.model.HealthResponse> {
+    abstract override val headers: Headers
   }
 
   @Serializable
   public data class HealthResponseSuccess(
-    public val body: org.litote.motis.client.model.HealthResponse,
+    override val body: org.litote.motis.client.model.HealthResponse,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : HealthResponse()
+  ) : HealthResponse(),
+      OperationResponseSuccess<org.litote.motis.client.model.HealthResponse>
 
   @Serializable
   public data class HealthResponseFailure(
-    public val body: org.litote.motis.client.model.HealthResponse,
+    override val body: org.litote.motis.client.model.HealthResponse,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : HealthResponse()
+  ) : HealthResponse(),
+      OperationResponseFailure<org.litote.motis.client.model.HealthResponse>
 
   @Serializable
   public data class HealthResponseUnknownFailure(
-    public val statusCode: Int,
+    override val statusCode: Int,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : HealthResponse()
+  ) : HealthResponse(),
+      OperationResponseUnknownFailure
 }
 
 public fun Client(configuration: ClientConfiguration = defaultClientConfiguration): Client = DefaultClient(configuration)

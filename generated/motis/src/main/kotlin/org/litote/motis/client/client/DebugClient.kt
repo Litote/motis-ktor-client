@@ -32,23 +32,25 @@ public interface DebugClient {
   )
 
   @Serializable
-  public sealed class TransfersResponse {
-    public abstract val headers: Headers
+  public sealed class TransfersResponse : OperationResponse<TransfersResponseBody> {
+    abstract override val headers: Headers
   }
 
   @Serializable
   public data class TransfersResponseSuccess(
-    public val body: TransfersResponseBody,
+    override val body: TransfersResponseBody,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : TransfersResponse()
+  ) : TransfersResponse(),
+      OperationResponseSuccess<TransfersResponseBody>
 
   @Serializable
   public data class TransfersResponseUnknownFailure(
-    public val statusCode: Int,
+    override val statusCode: Int,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : TransfersResponse()
+  ) : TransfersResponse(),
+      OperationResponseUnknownFailure
 }
 
 public fun DebugClient(configuration: ClientConfiguration = defaultClientConfiguration): DebugClient = DefaultDebugClient(configuration)

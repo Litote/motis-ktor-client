@@ -41,56 +41,62 @@ public interface GeocodeClient {
   ): GeocodeResponse
 
   @Serializable
-  public sealed class ReverseGeocodeResponse {
-    public abstract val headers: Headers
+  public sealed class ReverseGeocodeResponse : OperationResponse<List<Match>> {
+    abstract override val headers: Headers
   }
 
   @Serializable
   public data class ReverseGeocodeResponseSuccess(
-    public val body: List<Match>,
+    override val body: List<Match>,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : ReverseGeocodeResponse()
+  ) : ReverseGeocodeResponse(),
+      OperationResponseSuccess<List<Match>>
 
   @Serializable
   public data class ReverseGeocodeResponseFailure(
-    public val body: Error,
+    override val body: Error,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : ReverseGeocodeResponse()
+  ) : ReverseGeocodeResponse(),
+      OperationResponseFailure<Error>
 
   @Serializable
   public data class ReverseGeocodeResponseUnknownFailure(
-    public val statusCode: Int,
+    override val statusCode: Int,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : ReverseGeocodeResponse()
+  ) : ReverseGeocodeResponse(),
+      OperationResponseUnknownFailure
 
   @Serializable
-  public sealed class GeocodeResponse {
-    public abstract val headers: Headers
+  public sealed class GeocodeResponse : OperationResponse<List<Match>> {
+    abstract override val headers: Headers
   }
 
   @Serializable
   public data class GeocodeResponseSuccess(
-    public val body: List<Match>,
+    override val body: List<Match>,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : GeocodeResponse()
+  ) : GeocodeResponse(),
+      OperationResponseSuccess<List<Match>>
 
   @Serializable
   public data class GeocodeResponseFailure(
-    public val body: Error,
+    override val body: Error,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : GeocodeResponse()
+  ) : GeocodeResponse(),
+      OperationResponseFailure<Error>
 
   @Serializable
   public data class GeocodeResponseUnknownFailure(
-    public val statusCode: Int,
+    override val statusCode: Int,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : GeocodeResponse()
+  ) : GeocodeResponse(),
+      OperationResponseUnknownFailure
 }
 
 public fun GeocodeClient(configuration: ClientConfiguration = defaultClientConfiguration): GeocodeClient = DefaultGeocodeClient(configuration)
