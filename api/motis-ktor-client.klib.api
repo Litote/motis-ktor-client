@@ -399,7 +399,7 @@ final enum class org.litote.motis.client.model/WheelchairAccessibility : kotlin/
 abstract interface org.litote.motis.client.client/Client { // org.litote.motis.client.client/Client|null[0]
     abstract suspend fun health(): org.litote.motis.client.client/Client.HealthResponse // org.litote.motis.client.client/Client.health|health(){}[0]
 
-    final class HealthResponseFailure : org.litote.motis.client.client/Client.HealthResponse { // org.litote.motis.client.client/Client.HealthResponseFailure|null[0]
+    final class HealthResponseFailure : org.litote.motis.client.client/Client.HealthResponse, org.litote.motis.client.client/OperationResponseFailure<org.litote.motis.client.model/HealthResponse> { // org.litote.motis.client.client/Client.HealthResponseFailure|null[0]
         constructor <init>(org.litote.motis.client.model/HealthResponse, io.ktor.http/Headers = ...) // org.litote.motis.client.client/Client.HealthResponseFailure.<init>|<init>(org.litote.motis.client.model.HealthResponse;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/Client.HealthResponseFailure.body|{}body[0]
@@ -428,7 +428,7 @@ abstract interface org.litote.motis.client.client/Client { // org.litote.motis.c
         }
     }
 
-    final class HealthResponseSuccess : org.litote.motis.client.client/Client.HealthResponse { // org.litote.motis.client.client/Client.HealthResponseSuccess|null[0]
+    final class HealthResponseSuccess : org.litote.motis.client.client/Client.HealthResponse, org.litote.motis.client.client/OperationResponseSuccess<org.litote.motis.client.model/HealthResponse> { // org.litote.motis.client.client/Client.HealthResponseSuccess|null[0]
         constructor <init>(org.litote.motis.client.model/HealthResponse, io.ktor.http/Headers = ...) // org.litote.motis.client.client/Client.HealthResponseSuccess.<init>|<init>(org.litote.motis.client.model.HealthResponse;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/Client.HealthResponseSuccess.body|{}body[0]
@@ -457,7 +457,7 @@ abstract interface org.litote.motis.client.client/Client { // org.litote.motis.c
         }
     }
 
-    final class HealthResponseUnknownFailure : org.litote.motis.client.client/Client.HealthResponse { // org.litote.motis.client.client/Client.HealthResponseUnknownFailure|null[0]
+    final class HealthResponseUnknownFailure : org.litote.motis.client.client/Client.HealthResponse, org.litote.motis.client.client/OperationResponseUnknownFailure { // org.litote.motis.client.client/Client.HealthResponseUnknownFailure|null[0]
         constructor <init>(kotlin/Int, io.ktor.http/Headers = ...) // org.litote.motis.client.client/Client.HealthResponseUnknownFailure.<init>|<init>(kotlin.Int;io.ktor.http.Headers){}[0]
 
         final val headers // org.litote.motis.client.client/Client.HealthResponseUnknownFailure.headers|{}headers[0]
@@ -486,7 +486,7 @@ abstract interface org.litote.motis.client.client/Client { // org.litote.motis.c
         }
     }
 
-    sealed class HealthResponse { // org.litote.motis.client.client/Client.HealthResponse|null[0]
+    sealed class HealthResponse : org.litote.motis.client.client/OperationResponse<org.litote.motis.client.model/HealthResponse> { // org.litote.motis.client.client/Client.HealthResponse|null[0]
         abstract val headers // org.litote.motis.client.client/Client.HealthResponse.headers|{}headers[0]
             abstract fun <get-headers>(): io.ktor.http/Headers // org.litote.motis.client.client/Client.HealthResponse.headers.<get-headers>|<get-headers>(){}[0]
 
@@ -546,7 +546,7 @@ abstract interface org.litote.motis.client.client/DebugClient { // org.litote.mo
         }
     }
 
-    final class TransfersResponseSuccess : org.litote.motis.client.client/DebugClient.TransfersResponse { // org.litote.motis.client.client/DebugClient.TransfersResponseSuccess|null[0]
+    final class TransfersResponseSuccess : org.litote.motis.client.client/DebugClient.TransfersResponse, org.litote.motis.client.client/OperationResponseSuccess<org.litote.motis.client.client/DebugClient.TransfersResponseBody> { // org.litote.motis.client.client/DebugClient.TransfersResponseSuccess|null[0]
         constructor <init>(org.litote.motis.client.client/DebugClient.TransfersResponseBody, io.ktor.http/Headers = ...) // org.litote.motis.client.client/DebugClient.TransfersResponseSuccess.<init>|<init>(org.litote.motis.client.client.DebugClient.TransfersResponseBody;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/DebugClient.TransfersResponseSuccess.body|{}body[0]
@@ -575,7 +575,7 @@ abstract interface org.litote.motis.client.client/DebugClient { // org.litote.mo
         }
     }
 
-    final class TransfersResponseUnknownFailure : org.litote.motis.client.client/DebugClient.TransfersResponse { // org.litote.motis.client.client/DebugClient.TransfersResponseUnknownFailure|null[0]
+    final class TransfersResponseUnknownFailure : org.litote.motis.client.client/DebugClient.TransfersResponse, org.litote.motis.client.client/OperationResponseUnknownFailure { // org.litote.motis.client.client/DebugClient.TransfersResponseUnknownFailure|null[0]
         constructor <init>(kotlin/Int, io.ktor.http/Headers = ...) // org.litote.motis.client.client/DebugClient.TransfersResponseUnknownFailure.<init>|<init>(kotlin.Int;io.ktor.http.Headers){}[0]
 
         final val headers // org.litote.motis.client.client/DebugClient.TransfersResponseUnknownFailure.headers|{}headers[0]
@@ -604,7 +604,7 @@ abstract interface org.litote.motis.client.client/DebugClient { // org.litote.mo
         }
     }
 
-    sealed class TransfersResponse { // org.litote.motis.client.client/DebugClient.TransfersResponse|null[0]
+    sealed class TransfersResponse : org.litote.motis.client.client/OperationResponse<org.litote.motis.client.client/DebugClient.TransfersResponseBody> { // org.litote.motis.client.client/DebugClient.TransfersResponse|null[0]
         abstract val headers // org.litote.motis.client.client/DebugClient.TransfersResponse.headers|{}headers[0]
             abstract fun <get-headers>(): io.ktor.http/Headers // org.litote.motis.client.client/DebugClient.TransfersResponse.headers.<get-headers>|<get-headers>(){}[0]
 
@@ -619,7 +619,7 @@ abstract interface org.litote.motis.client.client/GeocodeClient { // org.litote.
     abstract suspend fun geocode(kotlin/String, kotlin.collections/List<kotlin/String>? = ..., kotlin.collections/List<org.litote.motis.client.model/LocationType>? = ..., kotlin.collections/List<org.litote.motis.client.model/Mode>? = ..., kotlin/String? = ..., kotlin/Double? = ..., kotlin/Long? = ...): org.litote.motis.client.client/GeocodeClient.GeocodeResponse // org.litote.motis.client.client/GeocodeClient.geocode|geocode(kotlin.String;kotlin.collections.List<kotlin.String>?;kotlin.collections.List<org.litote.motis.client.model.LocationType>?;kotlin.collections.List<org.litote.motis.client.model.Mode>?;kotlin.String?;kotlin.Double?;kotlin.Long?){}[0]
     abstract suspend fun reverseGeocode(kotlin/String, kotlin.collections/List<org.litote.motis.client.model/LocationType>? = ..., kotlin/Long? = ...): org.litote.motis.client.client/GeocodeClient.ReverseGeocodeResponse // org.litote.motis.client.client/GeocodeClient.reverseGeocode|reverseGeocode(kotlin.String;kotlin.collections.List<org.litote.motis.client.model.LocationType>?;kotlin.Long?){}[0]
 
-    final class GeocodeResponseFailure : org.litote.motis.client.client/GeocodeClient.GeocodeResponse { // org.litote.motis.client.client/GeocodeClient.GeocodeResponseFailure|null[0]
+    final class GeocodeResponseFailure : org.litote.motis.client.client/GeocodeClient.GeocodeResponse, org.litote.motis.client.client/OperationResponseFailure<org.litote.motis.client.model/Error> { // org.litote.motis.client.client/GeocodeClient.GeocodeResponseFailure|null[0]
         constructor <init>(org.litote.motis.client.model/Error, io.ktor.http/Headers = ...) // org.litote.motis.client.client/GeocodeClient.GeocodeResponseFailure.<init>|<init>(org.litote.motis.client.model.Error;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/GeocodeClient.GeocodeResponseFailure.body|{}body[0]
@@ -648,7 +648,7 @@ abstract interface org.litote.motis.client.client/GeocodeClient { // org.litote.
         }
     }
 
-    final class GeocodeResponseSuccess : org.litote.motis.client.client/GeocodeClient.GeocodeResponse { // org.litote.motis.client.client/GeocodeClient.GeocodeResponseSuccess|null[0]
+    final class GeocodeResponseSuccess : org.litote.motis.client.client/GeocodeClient.GeocodeResponse, org.litote.motis.client.client/OperationResponseSuccess<kotlin.collections/List<org.litote.motis.client.model/Match>> { // org.litote.motis.client.client/GeocodeClient.GeocodeResponseSuccess|null[0]
         constructor <init>(kotlin.collections/List<org.litote.motis.client.model/Match>, io.ktor.http/Headers = ...) // org.litote.motis.client.client/GeocodeClient.GeocodeResponseSuccess.<init>|<init>(kotlin.collections.List<org.litote.motis.client.model.Match>;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/GeocodeClient.GeocodeResponseSuccess.body|{}body[0]
@@ -679,7 +679,7 @@ abstract interface org.litote.motis.client.client/GeocodeClient { // org.litote.
         }
     }
 
-    final class GeocodeResponseUnknownFailure : org.litote.motis.client.client/GeocodeClient.GeocodeResponse { // org.litote.motis.client.client/GeocodeClient.GeocodeResponseUnknownFailure|null[0]
+    final class GeocodeResponseUnknownFailure : org.litote.motis.client.client/GeocodeClient.GeocodeResponse, org.litote.motis.client.client/OperationResponseUnknownFailure { // org.litote.motis.client.client/GeocodeClient.GeocodeResponseUnknownFailure|null[0]
         constructor <init>(kotlin/Int, io.ktor.http/Headers = ...) // org.litote.motis.client.client/GeocodeClient.GeocodeResponseUnknownFailure.<init>|<init>(kotlin.Int;io.ktor.http.Headers){}[0]
 
         final val headers // org.litote.motis.client.client/GeocodeClient.GeocodeResponseUnknownFailure.headers|{}headers[0]
@@ -708,7 +708,7 @@ abstract interface org.litote.motis.client.client/GeocodeClient { // org.litote.
         }
     }
 
-    final class ReverseGeocodeResponseFailure : org.litote.motis.client.client/GeocodeClient.ReverseGeocodeResponse { // org.litote.motis.client.client/GeocodeClient.ReverseGeocodeResponseFailure|null[0]
+    final class ReverseGeocodeResponseFailure : org.litote.motis.client.client/GeocodeClient.ReverseGeocodeResponse, org.litote.motis.client.client/OperationResponseFailure<org.litote.motis.client.model/Error> { // org.litote.motis.client.client/GeocodeClient.ReverseGeocodeResponseFailure|null[0]
         constructor <init>(org.litote.motis.client.model/Error, io.ktor.http/Headers = ...) // org.litote.motis.client.client/GeocodeClient.ReverseGeocodeResponseFailure.<init>|<init>(org.litote.motis.client.model.Error;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/GeocodeClient.ReverseGeocodeResponseFailure.body|{}body[0]
@@ -737,7 +737,7 @@ abstract interface org.litote.motis.client.client/GeocodeClient { // org.litote.
         }
     }
 
-    final class ReverseGeocodeResponseSuccess : org.litote.motis.client.client/GeocodeClient.ReverseGeocodeResponse { // org.litote.motis.client.client/GeocodeClient.ReverseGeocodeResponseSuccess|null[0]
+    final class ReverseGeocodeResponseSuccess : org.litote.motis.client.client/GeocodeClient.ReverseGeocodeResponse, org.litote.motis.client.client/OperationResponseSuccess<kotlin.collections/List<org.litote.motis.client.model/Match>> { // org.litote.motis.client.client/GeocodeClient.ReverseGeocodeResponseSuccess|null[0]
         constructor <init>(kotlin.collections/List<org.litote.motis.client.model/Match>, io.ktor.http/Headers = ...) // org.litote.motis.client.client/GeocodeClient.ReverseGeocodeResponseSuccess.<init>|<init>(kotlin.collections.List<org.litote.motis.client.model.Match>;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/GeocodeClient.ReverseGeocodeResponseSuccess.body|{}body[0]
@@ -768,7 +768,7 @@ abstract interface org.litote.motis.client.client/GeocodeClient { // org.litote.
         }
     }
 
-    final class ReverseGeocodeResponseUnknownFailure : org.litote.motis.client.client/GeocodeClient.ReverseGeocodeResponse { // org.litote.motis.client.client/GeocodeClient.ReverseGeocodeResponseUnknownFailure|null[0]
+    final class ReverseGeocodeResponseUnknownFailure : org.litote.motis.client.client/GeocodeClient.ReverseGeocodeResponse, org.litote.motis.client.client/OperationResponseUnknownFailure { // org.litote.motis.client.client/GeocodeClient.ReverseGeocodeResponseUnknownFailure|null[0]
         constructor <init>(kotlin/Int, io.ktor.http/Headers = ...) // org.litote.motis.client.client/GeocodeClient.ReverseGeocodeResponseUnknownFailure.<init>|<init>(kotlin.Int;io.ktor.http.Headers){}[0]
 
         final val headers // org.litote.motis.client.client/GeocodeClient.ReverseGeocodeResponseUnknownFailure.headers|{}headers[0]
@@ -797,7 +797,7 @@ abstract interface org.litote.motis.client.client/GeocodeClient { // org.litote.
         }
     }
 
-    sealed class GeocodeResponse { // org.litote.motis.client.client/GeocodeClient.GeocodeResponse|null[0]
+    sealed class GeocodeResponse : org.litote.motis.client.client/OperationResponse<kotlin.collections/List<org.litote.motis.client.model/Match>> { // org.litote.motis.client.client/GeocodeClient.GeocodeResponse|null[0]
         abstract val headers // org.litote.motis.client.client/GeocodeClient.GeocodeResponse.headers|{}headers[0]
             abstract fun <get-headers>(): io.ktor.http/Headers // org.litote.motis.client.client/GeocodeClient.GeocodeResponse.headers.<get-headers>|<get-headers>(){}[0]
 
@@ -807,7 +807,7 @@ abstract interface org.litote.motis.client.client/GeocodeClient { // org.litote.
         }
     }
 
-    sealed class ReverseGeocodeResponse { // org.litote.motis.client.client/GeocodeClient.ReverseGeocodeResponse|null[0]
+    sealed class ReverseGeocodeResponse : org.litote.motis.client.client/OperationResponse<kotlin.collections/List<org.litote.motis.client.model/Match>> { // org.litote.motis.client.client/GeocodeClient.ReverseGeocodeResponse|null[0]
         abstract val headers // org.litote.motis.client.client/GeocodeClient.ReverseGeocodeResponse.headers|{}headers[0]
             abstract fun <get-headers>(): io.ktor.http/Headers // org.litote.motis.client.client/GeocodeClient.ReverseGeocodeResponse.headers.<get-headers>|<get-headers>(){}[0]
 
@@ -862,7 +862,7 @@ abstract interface org.litote.motis.client.client/MapClient { // org.litote.moti
         }
     }
 
-    final class InitialResponseFailure : org.litote.motis.client.client/MapClient.InitialResponse { // org.litote.motis.client.client/MapClient.InitialResponseFailure|null[0]
+    final class InitialResponseFailure : org.litote.motis.client.client/MapClient.InitialResponse, org.litote.motis.client.client/OperationResponseFailure<org.litote.motis.client.model/Error> { // org.litote.motis.client.client/MapClient.InitialResponseFailure|null[0]
         constructor <init>(org.litote.motis.client.model/Error, io.ktor.http/Headers = ...) // org.litote.motis.client.client/MapClient.InitialResponseFailure.<init>|<init>(org.litote.motis.client.model.Error;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/MapClient.InitialResponseFailure.body|{}body[0]
@@ -891,7 +891,7 @@ abstract interface org.litote.motis.client.client/MapClient { // org.litote.moti
         }
     }
 
-    final class InitialResponseSuccess : org.litote.motis.client.client/MapClient.InitialResponse { // org.litote.motis.client.client/MapClient.InitialResponseSuccess|null[0]
+    final class InitialResponseSuccess : org.litote.motis.client.client/MapClient.InitialResponse, org.litote.motis.client.client/OperationResponseSuccess<org.litote.motis.client.client/MapClient.InitialResponseBody> { // org.litote.motis.client.client/MapClient.InitialResponseSuccess|null[0]
         constructor <init>(org.litote.motis.client.client/MapClient.InitialResponseBody, io.ktor.http/Headers = ...) // org.litote.motis.client.client/MapClient.InitialResponseSuccess.<init>|<init>(org.litote.motis.client.client.MapClient.InitialResponseBody;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/MapClient.InitialResponseSuccess.body|{}body[0]
@@ -920,7 +920,7 @@ abstract interface org.litote.motis.client.client/MapClient { // org.litote.moti
         }
     }
 
-    final class InitialResponseUnknownFailure : org.litote.motis.client.client/MapClient.InitialResponse { // org.litote.motis.client.client/MapClient.InitialResponseUnknownFailure|null[0]
+    final class InitialResponseUnknownFailure : org.litote.motis.client.client/MapClient.InitialResponse, org.litote.motis.client.client/OperationResponseUnknownFailure { // org.litote.motis.client.client/MapClient.InitialResponseUnknownFailure|null[0]
         constructor <init>(kotlin/Int, io.ktor.http/Headers = ...) // org.litote.motis.client.client/MapClient.InitialResponseUnknownFailure.<init>|<init>(kotlin.Int;io.ktor.http.Headers){}[0]
 
         final val headers // org.litote.motis.client.client/MapClient.InitialResponseUnknownFailure.headers|{}headers[0]
@@ -949,7 +949,7 @@ abstract interface org.litote.motis.client.client/MapClient { // org.litote.moti
         }
     }
 
-    final class LevelsResponseFailure : org.litote.motis.client.client/MapClient.LevelsResponse { // org.litote.motis.client.client/MapClient.LevelsResponseFailure|null[0]
+    final class LevelsResponseFailure : org.litote.motis.client.client/MapClient.LevelsResponse, org.litote.motis.client.client/OperationResponseFailure<org.litote.motis.client.model/Error> { // org.litote.motis.client.client/MapClient.LevelsResponseFailure|null[0]
         constructor <init>(org.litote.motis.client.model/Error, io.ktor.http/Headers = ...) // org.litote.motis.client.client/MapClient.LevelsResponseFailure.<init>|<init>(org.litote.motis.client.model.Error;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/MapClient.LevelsResponseFailure.body|{}body[0]
@@ -978,7 +978,7 @@ abstract interface org.litote.motis.client.client/MapClient { // org.litote.moti
         }
     }
 
-    final class LevelsResponseSuccess : org.litote.motis.client.client/MapClient.LevelsResponse { // org.litote.motis.client.client/MapClient.LevelsResponseSuccess|null[0]
+    final class LevelsResponseSuccess : org.litote.motis.client.client/MapClient.LevelsResponse, org.litote.motis.client.client/OperationResponseSuccess<kotlin.collections/List<kotlin/Double>> { // org.litote.motis.client.client/MapClient.LevelsResponseSuccess|null[0]
         constructor <init>(kotlin.collections/List<kotlin/Double>, io.ktor.http/Headers = ...) // org.litote.motis.client.client/MapClient.LevelsResponseSuccess.<init>|<init>(kotlin.collections.List<kotlin.Double>;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/MapClient.LevelsResponseSuccess.body|{}body[0]
@@ -1009,7 +1009,7 @@ abstract interface org.litote.motis.client.client/MapClient { // org.litote.moti
         }
     }
 
-    final class LevelsResponseUnknownFailure : org.litote.motis.client.client/MapClient.LevelsResponse { // org.litote.motis.client.client/MapClient.LevelsResponseUnknownFailure|null[0]
+    final class LevelsResponseUnknownFailure : org.litote.motis.client.client/MapClient.LevelsResponse, org.litote.motis.client.client/OperationResponseUnknownFailure { // org.litote.motis.client.client/MapClient.LevelsResponseUnknownFailure|null[0]
         constructor <init>(kotlin/Int, io.ktor.http/Headers = ...) // org.litote.motis.client.client/MapClient.LevelsResponseUnknownFailure.<init>|<init>(kotlin.Int;io.ktor.http.Headers){}[0]
 
         final val headers // org.litote.motis.client.client/MapClient.LevelsResponseUnknownFailure.headers|{}headers[0]
@@ -1078,7 +1078,7 @@ abstract interface org.litote.motis.client.client/MapClient { // org.litote.moti
         }
     }
 
-    final class RentalsResponseFailure : org.litote.motis.client.client/MapClient.RentalsResponse { // org.litote.motis.client.client/MapClient.RentalsResponseFailure|null[0]
+    final class RentalsResponseFailure : org.litote.motis.client.client/MapClient.RentalsResponse, org.litote.motis.client.client/OperationResponseFailure<org.litote.motis.client.model/Error> { // org.litote.motis.client.client/MapClient.RentalsResponseFailure|null[0]
         constructor <init>(org.litote.motis.client.model/Error, io.ktor.http/Headers = ...) // org.litote.motis.client.client/MapClient.RentalsResponseFailure.<init>|<init>(org.litote.motis.client.model.Error;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/MapClient.RentalsResponseFailure.body|{}body[0]
@@ -1107,7 +1107,7 @@ abstract interface org.litote.motis.client.client/MapClient { // org.litote.moti
         }
     }
 
-    final class RentalsResponseSuccess : org.litote.motis.client.client/MapClient.RentalsResponse { // org.litote.motis.client.client/MapClient.RentalsResponseSuccess|null[0]
+    final class RentalsResponseSuccess : org.litote.motis.client.client/MapClient.RentalsResponse, org.litote.motis.client.client/OperationResponseSuccess<org.litote.motis.client.client/MapClient.RentalsResponseBody> { // org.litote.motis.client.client/MapClient.RentalsResponseSuccess|null[0]
         constructor <init>(org.litote.motis.client.client/MapClient.RentalsResponseBody, io.ktor.http/Headers = ...) // org.litote.motis.client.client/MapClient.RentalsResponseSuccess.<init>|<init>(org.litote.motis.client.client.MapClient.RentalsResponseBody;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/MapClient.RentalsResponseSuccess.body|{}body[0]
@@ -1136,7 +1136,7 @@ abstract interface org.litote.motis.client.client/MapClient { // org.litote.moti
         }
     }
 
-    final class RentalsResponseUnknownFailure : org.litote.motis.client.client/MapClient.RentalsResponse { // org.litote.motis.client.client/MapClient.RentalsResponseUnknownFailure|null[0]
+    final class RentalsResponseUnknownFailure : org.litote.motis.client.client/MapClient.RentalsResponse, org.litote.motis.client.client/OperationResponseUnknownFailure { // org.litote.motis.client.client/MapClient.RentalsResponseUnknownFailure|null[0]
         constructor <init>(kotlin/Int, io.ktor.http/Headers = ...) // org.litote.motis.client.client/MapClient.RentalsResponseUnknownFailure.<init>|<init>(kotlin.Int;io.ktor.http.Headers){}[0]
 
         final val headers // org.litote.motis.client.client/MapClient.RentalsResponseUnknownFailure.headers|{}headers[0]
@@ -1202,7 +1202,7 @@ abstract interface org.litote.motis.client.client/MapClient { // org.litote.moti
         }
     }
 
-    final class RouteDetailsResponseFailure : org.litote.motis.client.client/MapClient.RouteDetailsResponse { // org.litote.motis.client.client/MapClient.RouteDetailsResponseFailure|null[0]
+    final class RouteDetailsResponseFailure : org.litote.motis.client.client/MapClient.RouteDetailsResponse, org.litote.motis.client.client/OperationResponseFailure<org.litote.motis.client.model/Error> { // org.litote.motis.client.client/MapClient.RouteDetailsResponseFailure|null[0]
         constructor <init>(org.litote.motis.client.model/Error, io.ktor.http/Headers = ...) // org.litote.motis.client.client/MapClient.RouteDetailsResponseFailure.<init>|<init>(org.litote.motis.client.model.Error;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/MapClient.RouteDetailsResponseFailure.body|{}body[0]
@@ -1231,7 +1231,7 @@ abstract interface org.litote.motis.client.client/MapClient { // org.litote.moti
         }
     }
 
-    final class RouteDetailsResponseSuccess : org.litote.motis.client.client/MapClient.RouteDetailsResponse { // org.litote.motis.client.client/MapClient.RouteDetailsResponseSuccess|null[0]
+    final class RouteDetailsResponseSuccess : org.litote.motis.client.client/MapClient.RouteDetailsResponse, org.litote.motis.client.client/OperationResponseSuccess<org.litote.motis.client.client/MapClient.RouteDetailsResponseBody> { // org.litote.motis.client.client/MapClient.RouteDetailsResponseSuccess|null[0]
         constructor <init>(org.litote.motis.client.client/MapClient.RouteDetailsResponseBody, io.ktor.http/Headers = ...) // org.litote.motis.client.client/MapClient.RouteDetailsResponseSuccess.<init>|<init>(org.litote.motis.client.client.MapClient.RouteDetailsResponseBody;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/MapClient.RouteDetailsResponseSuccess.body|{}body[0]
@@ -1260,7 +1260,7 @@ abstract interface org.litote.motis.client.client/MapClient { // org.litote.moti
         }
     }
 
-    final class RouteDetailsResponseUnknownFailure : org.litote.motis.client.client/MapClient.RouteDetailsResponse { // org.litote.motis.client.client/MapClient.RouteDetailsResponseUnknownFailure|null[0]
+    final class RouteDetailsResponseUnknownFailure : org.litote.motis.client.client/MapClient.RouteDetailsResponse, org.litote.motis.client.client/OperationResponseUnknownFailure { // org.litote.motis.client.client/MapClient.RouteDetailsResponseUnknownFailure|null[0]
         constructor <init>(kotlin/Int, io.ktor.http/Headers = ...) // org.litote.motis.client.client/MapClient.RouteDetailsResponseUnknownFailure.<init>|<init>(kotlin.Int;io.ktor.http.Headers){}[0]
 
         final val headers // org.litote.motis.client.client/MapClient.RouteDetailsResponseUnknownFailure.headers|{}headers[0]
@@ -1326,7 +1326,7 @@ abstract interface org.litote.motis.client.client/MapClient { // org.litote.moti
         }
     }
 
-    final class RoutesResponseFailure : org.litote.motis.client.client/MapClient.RoutesResponse { // org.litote.motis.client.client/MapClient.RoutesResponseFailure|null[0]
+    final class RoutesResponseFailure : org.litote.motis.client.client/MapClient.RoutesResponse, org.litote.motis.client.client/OperationResponseFailure<org.litote.motis.client.model/Error> { // org.litote.motis.client.client/MapClient.RoutesResponseFailure|null[0]
         constructor <init>(org.litote.motis.client.model/Error, io.ktor.http/Headers = ...) // org.litote.motis.client.client/MapClient.RoutesResponseFailure.<init>|<init>(org.litote.motis.client.model.Error;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/MapClient.RoutesResponseFailure.body|{}body[0]
@@ -1355,7 +1355,7 @@ abstract interface org.litote.motis.client.client/MapClient { // org.litote.moti
         }
     }
 
-    final class RoutesResponseSuccess : org.litote.motis.client.client/MapClient.RoutesResponse { // org.litote.motis.client.client/MapClient.RoutesResponseSuccess|null[0]
+    final class RoutesResponseSuccess : org.litote.motis.client.client/MapClient.RoutesResponse, org.litote.motis.client.client/OperationResponseSuccess<org.litote.motis.client.client/MapClient.RoutesResponseBody> { // org.litote.motis.client.client/MapClient.RoutesResponseSuccess|null[0]
         constructor <init>(org.litote.motis.client.client/MapClient.RoutesResponseBody, io.ktor.http/Headers = ...) // org.litote.motis.client.client/MapClient.RoutesResponseSuccess.<init>|<init>(org.litote.motis.client.client.MapClient.RoutesResponseBody;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/MapClient.RoutesResponseSuccess.body|{}body[0]
@@ -1384,7 +1384,7 @@ abstract interface org.litote.motis.client.client/MapClient { // org.litote.moti
         }
     }
 
-    final class RoutesResponseUnknownFailure : org.litote.motis.client.client/MapClient.RoutesResponse { // org.litote.motis.client.client/MapClient.RoutesResponseUnknownFailure|null[0]
+    final class RoutesResponseUnknownFailure : org.litote.motis.client.client/MapClient.RoutesResponse, org.litote.motis.client.client/OperationResponseUnknownFailure { // org.litote.motis.client.client/MapClient.RoutesResponseUnknownFailure|null[0]
         constructor <init>(kotlin/Int, io.ktor.http/Headers = ...) // org.litote.motis.client.client/MapClient.RoutesResponseUnknownFailure.<init>|<init>(kotlin.Int;io.ktor.http.Headers){}[0]
 
         final val headers // org.litote.motis.client.client/MapClient.RoutesResponseUnknownFailure.headers|{}headers[0]
@@ -1413,7 +1413,7 @@ abstract interface org.litote.motis.client.client/MapClient { // org.litote.moti
         }
     }
 
-    final class StopsResponseFailure : org.litote.motis.client.client/MapClient.StopsResponse { // org.litote.motis.client.client/MapClient.StopsResponseFailure|null[0]
+    final class StopsResponseFailure : org.litote.motis.client.client/MapClient.StopsResponse, org.litote.motis.client.client/OperationResponseFailure<org.litote.motis.client.model/Error> { // org.litote.motis.client.client/MapClient.StopsResponseFailure|null[0]
         constructor <init>(org.litote.motis.client.model/Error, io.ktor.http/Headers = ...) // org.litote.motis.client.client/MapClient.StopsResponseFailure.<init>|<init>(org.litote.motis.client.model.Error;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/MapClient.StopsResponseFailure.body|{}body[0]
@@ -1442,7 +1442,7 @@ abstract interface org.litote.motis.client.client/MapClient { // org.litote.moti
         }
     }
 
-    final class StopsResponseSuccess : org.litote.motis.client.client/MapClient.StopsResponse { // org.litote.motis.client.client/MapClient.StopsResponseSuccess|null[0]
+    final class StopsResponseSuccess : org.litote.motis.client.client/MapClient.StopsResponse, org.litote.motis.client.client/OperationResponseSuccess<kotlin.collections/List<org.litote.motis.client.model/Place>> { // org.litote.motis.client.client/MapClient.StopsResponseSuccess|null[0]
         constructor <init>(kotlin.collections/List<org.litote.motis.client.model/Place>, io.ktor.http/Headers = ...) // org.litote.motis.client.client/MapClient.StopsResponseSuccess.<init>|<init>(kotlin.collections.List<org.litote.motis.client.model.Place>;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/MapClient.StopsResponseSuccess.body|{}body[0]
@@ -1473,7 +1473,7 @@ abstract interface org.litote.motis.client.client/MapClient { // org.litote.moti
         }
     }
 
-    final class StopsResponseUnknownFailure : org.litote.motis.client.client/MapClient.StopsResponse { // org.litote.motis.client.client/MapClient.StopsResponseUnknownFailure|null[0]
+    final class StopsResponseUnknownFailure : org.litote.motis.client.client/MapClient.StopsResponse, org.litote.motis.client.client/OperationResponseUnknownFailure { // org.litote.motis.client.client/MapClient.StopsResponseUnknownFailure|null[0]
         constructor <init>(kotlin/Int, io.ktor.http/Headers = ...) // org.litote.motis.client.client/MapClient.StopsResponseUnknownFailure.<init>|<init>(kotlin.Int;io.ktor.http.Headers){}[0]
 
         final val headers // org.litote.motis.client.client/MapClient.StopsResponseUnknownFailure.headers|{}headers[0]
@@ -1502,7 +1502,7 @@ abstract interface org.litote.motis.client.client/MapClient { // org.litote.moti
         }
     }
 
-    final class TripsResponseFailure : org.litote.motis.client.client/MapClient.TripsResponse { // org.litote.motis.client.client/MapClient.TripsResponseFailure|null[0]
+    final class TripsResponseFailure : org.litote.motis.client.client/MapClient.TripsResponse, org.litote.motis.client.client/OperationResponseFailure<org.litote.motis.client.model/Error> { // org.litote.motis.client.client/MapClient.TripsResponseFailure|null[0]
         constructor <init>(org.litote.motis.client.model/Error, io.ktor.http/Headers = ...) // org.litote.motis.client.client/MapClient.TripsResponseFailure.<init>|<init>(org.litote.motis.client.model.Error;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/MapClient.TripsResponseFailure.body|{}body[0]
@@ -1531,7 +1531,7 @@ abstract interface org.litote.motis.client.client/MapClient { // org.litote.moti
         }
     }
 
-    final class TripsResponseSuccess : org.litote.motis.client.client/MapClient.TripsResponse { // org.litote.motis.client.client/MapClient.TripsResponseSuccess|null[0]
+    final class TripsResponseSuccess : org.litote.motis.client.client/MapClient.TripsResponse, org.litote.motis.client.client/OperationResponseSuccess<kotlin.collections/List<org.litote.motis.client.model/TripSegment>> { // org.litote.motis.client.client/MapClient.TripsResponseSuccess|null[0]
         constructor <init>(kotlin.collections/List<org.litote.motis.client.model/TripSegment>, io.ktor.http/Headers = ...) // org.litote.motis.client.client/MapClient.TripsResponseSuccess.<init>|<init>(kotlin.collections.List<org.litote.motis.client.model.TripSegment>;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/MapClient.TripsResponseSuccess.body|{}body[0]
@@ -1562,7 +1562,7 @@ abstract interface org.litote.motis.client.client/MapClient { // org.litote.moti
         }
     }
 
-    final class TripsResponseUnknownFailure : org.litote.motis.client.client/MapClient.TripsResponse { // org.litote.motis.client.client/MapClient.TripsResponseUnknownFailure|null[0]
+    final class TripsResponseUnknownFailure : org.litote.motis.client.client/MapClient.TripsResponse, org.litote.motis.client.client/OperationResponseUnknownFailure { // org.litote.motis.client.client/MapClient.TripsResponseUnknownFailure|null[0]
         constructor <init>(kotlin/Int, io.ktor.http/Headers = ...) // org.litote.motis.client.client/MapClient.TripsResponseUnknownFailure.<init>|<init>(kotlin.Int;io.ktor.http.Headers){}[0]
 
         final val headers // org.litote.motis.client.client/MapClient.TripsResponseUnknownFailure.headers|{}headers[0]
@@ -1591,7 +1591,7 @@ abstract interface org.litote.motis.client.client/MapClient { // org.litote.moti
         }
     }
 
-    sealed class InitialResponse { // org.litote.motis.client.client/MapClient.InitialResponse|null[0]
+    sealed class InitialResponse : org.litote.motis.client.client/OperationResponse<org.litote.motis.client.client/MapClient.InitialResponseBody> { // org.litote.motis.client.client/MapClient.InitialResponse|null[0]
         abstract val headers // org.litote.motis.client.client/MapClient.InitialResponse.headers|{}headers[0]
             abstract fun <get-headers>(): io.ktor.http/Headers // org.litote.motis.client.client/MapClient.InitialResponse.headers.<get-headers>|<get-headers>(){}[0]
 
@@ -1601,7 +1601,7 @@ abstract interface org.litote.motis.client.client/MapClient { // org.litote.moti
         }
     }
 
-    sealed class LevelsResponse { // org.litote.motis.client.client/MapClient.LevelsResponse|null[0]
+    sealed class LevelsResponse : org.litote.motis.client.client/OperationResponse<kotlin.collections/List<kotlin/Double>> { // org.litote.motis.client.client/MapClient.LevelsResponse|null[0]
         abstract val headers // org.litote.motis.client.client/MapClient.LevelsResponse.headers|{}headers[0]
             abstract fun <get-headers>(): io.ktor.http/Headers // org.litote.motis.client.client/MapClient.LevelsResponse.headers.<get-headers>|<get-headers>(){}[0]
 
@@ -1611,7 +1611,7 @@ abstract interface org.litote.motis.client.client/MapClient { // org.litote.moti
         }
     }
 
-    sealed class RentalsResponse { // org.litote.motis.client.client/MapClient.RentalsResponse|null[0]
+    sealed class RentalsResponse : org.litote.motis.client.client/OperationResponse<org.litote.motis.client.client/MapClient.RentalsResponseBody> { // org.litote.motis.client.client/MapClient.RentalsResponse|null[0]
         abstract val headers // org.litote.motis.client.client/MapClient.RentalsResponse.headers|{}headers[0]
             abstract fun <get-headers>(): io.ktor.http/Headers // org.litote.motis.client.client/MapClient.RentalsResponse.headers.<get-headers>|<get-headers>(){}[0]
 
@@ -1621,7 +1621,7 @@ abstract interface org.litote.motis.client.client/MapClient { // org.litote.moti
         }
     }
 
-    sealed class RouteDetailsResponse { // org.litote.motis.client.client/MapClient.RouteDetailsResponse|null[0]
+    sealed class RouteDetailsResponse : org.litote.motis.client.client/OperationResponse<org.litote.motis.client.client/MapClient.RouteDetailsResponseBody> { // org.litote.motis.client.client/MapClient.RouteDetailsResponse|null[0]
         abstract val headers // org.litote.motis.client.client/MapClient.RouteDetailsResponse.headers|{}headers[0]
             abstract fun <get-headers>(): io.ktor.http/Headers // org.litote.motis.client.client/MapClient.RouteDetailsResponse.headers.<get-headers>|<get-headers>(){}[0]
 
@@ -1631,7 +1631,7 @@ abstract interface org.litote.motis.client.client/MapClient { // org.litote.moti
         }
     }
 
-    sealed class RoutesResponse { // org.litote.motis.client.client/MapClient.RoutesResponse|null[0]
+    sealed class RoutesResponse : org.litote.motis.client.client/OperationResponse<org.litote.motis.client.client/MapClient.RoutesResponseBody> { // org.litote.motis.client.client/MapClient.RoutesResponse|null[0]
         abstract val headers // org.litote.motis.client.client/MapClient.RoutesResponse.headers|{}headers[0]
             abstract fun <get-headers>(): io.ktor.http/Headers // org.litote.motis.client.client/MapClient.RoutesResponse.headers.<get-headers>|<get-headers>(){}[0]
 
@@ -1641,7 +1641,7 @@ abstract interface org.litote.motis.client.client/MapClient { // org.litote.moti
         }
     }
 
-    sealed class StopsResponse { // org.litote.motis.client.client/MapClient.StopsResponse|null[0]
+    sealed class StopsResponse : org.litote.motis.client.client/OperationResponse<kotlin.collections/List<org.litote.motis.client.model/Place>> { // org.litote.motis.client.client/MapClient.StopsResponse|null[0]
         abstract val headers // org.litote.motis.client.client/MapClient.StopsResponse.headers|{}headers[0]
             abstract fun <get-headers>(): io.ktor.http/Headers // org.litote.motis.client.client/MapClient.StopsResponse.headers.<get-headers>|<get-headers>(){}[0]
 
@@ -1651,7 +1651,7 @@ abstract interface org.litote.motis.client.client/MapClient { // org.litote.moti
         }
     }
 
-    sealed class TripsResponse { // org.litote.motis.client.client/MapClient.TripsResponse|null[0]
+    sealed class TripsResponse : org.litote.motis.client.client/OperationResponse<kotlin.collections/List<org.litote.motis.client.model/TripSegment>> { // org.litote.motis.client.client/MapClient.TripsResponse|null[0]
         abstract val headers // org.litote.motis.client.client/MapClient.TripsResponse.headers|{}headers[0]
             abstract fun <get-headers>(): io.ktor.http/Headers // org.litote.motis.client.client/MapClient.TripsResponse.headers.<get-headers>|<get-headers>(){}[0]
 
@@ -1688,7 +1688,7 @@ abstract interface org.litote.motis.client.client/RoutingClient { // org.litote.
         }
     }
 
-    final class OneToAllResponseFailure : org.litote.motis.client.client/RoutingClient.OneToAllResponse { // org.litote.motis.client.client/RoutingClient.OneToAllResponseFailure|null[0]
+    final class OneToAllResponseFailure : org.litote.motis.client.client/OperationResponseFailure<org.litote.motis.client.model/Error>, org.litote.motis.client.client/RoutingClient.OneToAllResponse { // org.litote.motis.client.client/RoutingClient.OneToAllResponseFailure|null[0]
         constructor <init>(org.litote.motis.client.model/Error, io.ktor.http/Headers = ...) // org.litote.motis.client.client/RoutingClient.OneToAllResponseFailure.<init>|<init>(org.litote.motis.client.model.Error;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/RoutingClient.OneToAllResponseFailure.body|{}body[0]
@@ -1717,7 +1717,7 @@ abstract interface org.litote.motis.client.client/RoutingClient { // org.litote.
         }
     }
 
-    final class OneToAllResponseSuccess : org.litote.motis.client.client/RoutingClient.OneToAllResponse { // org.litote.motis.client.client/RoutingClient.OneToAllResponseSuccess|null[0]
+    final class OneToAllResponseSuccess : org.litote.motis.client.client/OperationResponseSuccess<org.litote.motis.client.model/Reachable>, org.litote.motis.client.client/RoutingClient.OneToAllResponse { // org.litote.motis.client.client/RoutingClient.OneToAllResponseSuccess|null[0]
         constructor <init>(org.litote.motis.client.model/Reachable, io.ktor.http/Headers = ...) // org.litote.motis.client.client/RoutingClient.OneToAllResponseSuccess.<init>|<init>(org.litote.motis.client.model.Reachable;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/RoutingClient.OneToAllResponseSuccess.body|{}body[0]
@@ -1746,7 +1746,7 @@ abstract interface org.litote.motis.client.client/RoutingClient { // org.litote.
         }
     }
 
-    final class OneToAllResponseUnknownFailure : org.litote.motis.client.client/RoutingClient.OneToAllResponse { // org.litote.motis.client.client/RoutingClient.OneToAllResponseUnknownFailure|null[0]
+    final class OneToAllResponseUnknownFailure : org.litote.motis.client.client/OperationResponseUnknownFailure, org.litote.motis.client.client/RoutingClient.OneToAllResponse { // org.litote.motis.client.client/RoutingClient.OneToAllResponseUnknownFailure|null[0]
         constructor <init>(kotlin/Int, io.ktor.http/Headers = ...) // org.litote.motis.client.client/RoutingClient.OneToAllResponseUnknownFailure.<init>|<init>(kotlin.Int;io.ktor.http.Headers){}[0]
 
         final val headers // org.litote.motis.client.client/RoutingClient.OneToAllResponseUnknownFailure.headers|{}headers[0]
@@ -1775,7 +1775,7 @@ abstract interface org.litote.motis.client.client/RoutingClient { // org.litote.
         }
     }
 
-    final class OneToManyIntermodalPostResponseFailure : org.litote.motis.client.client/RoutingClient.OneToManyIntermodalPostResponse { // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalPostResponseFailure|null[0]
+    final class OneToManyIntermodalPostResponseFailure : org.litote.motis.client.client/OperationResponseFailure<org.litote.motis.client.model/Error>, org.litote.motis.client.client/RoutingClient.OneToManyIntermodalPostResponse { // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalPostResponseFailure|null[0]
         constructor <init>(org.litote.motis.client.model/Error, io.ktor.http/Headers = ...) // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalPostResponseFailure.<init>|<init>(org.litote.motis.client.model.Error;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalPostResponseFailure.body|{}body[0]
@@ -1804,7 +1804,7 @@ abstract interface org.litote.motis.client.client/RoutingClient { // org.litote.
         }
     }
 
-    final class OneToManyIntermodalPostResponseSuccess : org.litote.motis.client.client/RoutingClient.OneToManyIntermodalPostResponse { // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalPostResponseSuccess|null[0]
+    final class OneToManyIntermodalPostResponseSuccess : org.litote.motis.client.client/OperationResponseSuccess<org.litote.motis.client.model/OneToManyIntermodalResponse>, org.litote.motis.client.client/RoutingClient.OneToManyIntermodalPostResponse { // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalPostResponseSuccess|null[0]
         constructor <init>(org.litote.motis.client.model/OneToManyIntermodalResponse, io.ktor.http/Headers = ...) // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalPostResponseSuccess.<init>|<init>(org.litote.motis.client.model.OneToManyIntermodalResponse;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalPostResponseSuccess.body|{}body[0]
@@ -1833,7 +1833,7 @@ abstract interface org.litote.motis.client.client/RoutingClient { // org.litote.
         }
     }
 
-    final class OneToManyIntermodalPostResponseUnknownFailure : org.litote.motis.client.client/RoutingClient.OneToManyIntermodalPostResponse { // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalPostResponseUnknownFailure|null[0]
+    final class OneToManyIntermodalPostResponseUnknownFailure : org.litote.motis.client.client/OperationResponseUnknownFailure, org.litote.motis.client.client/RoutingClient.OneToManyIntermodalPostResponse { // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalPostResponseUnknownFailure|null[0]
         constructor <init>(kotlin/Int, io.ktor.http/Headers = ...) // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalPostResponseUnknownFailure.<init>|<init>(kotlin.Int;io.ktor.http.Headers){}[0]
 
         final val headers // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalPostResponseUnknownFailure.headers|{}headers[0]
@@ -1862,7 +1862,7 @@ abstract interface org.litote.motis.client.client/RoutingClient { // org.litote.
         }
     }
 
-    final class OneToManyIntermodalResponseFailure : org.litote.motis.client.client/RoutingClient.OneToManyIntermodalResponse { // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalResponseFailure|null[0]
+    final class OneToManyIntermodalResponseFailure : org.litote.motis.client.client/OperationResponseFailure<org.litote.motis.client.model/Error>, org.litote.motis.client.client/RoutingClient.OneToManyIntermodalResponse { // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalResponseFailure|null[0]
         constructor <init>(org.litote.motis.client.model/Error, io.ktor.http/Headers = ...) // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalResponseFailure.<init>|<init>(org.litote.motis.client.model.Error;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalResponseFailure.body|{}body[0]
@@ -1891,7 +1891,7 @@ abstract interface org.litote.motis.client.client/RoutingClient { // org.litote.
         }
     }
 
-    final class OneToManyIntermodalResponseSuccess : org.litote.motis.client.client/RoutingClient.OneToManyIntermodalResponse { // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalResponseSuccess|null[0]
+    final class OneToManyIntermodalResponseSuccess : org.litote.motis.client.client/OperationResponseSuccess<org.litote.motis.client.model/OneToManyIntermodalResponse>, org.litote.motis.client.client/RoutingClient.OneToManyIntermodalResponse { // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalResponseSuccess|null[0]
         constructor <init>(org.litote.motis.client.model/OneToManyIntermodalResponse, io.ktor.http/Headers = ...) // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalResponseSuccess.<init>|<init>(org.litote.motis.client.model.OneToManyIntermodalResponse;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalResponseSuccess.body|{}body[0]
@@ -1920,7 +1920,7 @@ abstract interface org.litote.motis.client.client/RoutingClient { // org.litote.
         }
     }
 
-    final class OneToManyIntermodalResponseUnknownFailure : org.litote.motis.client.client/RoutingClient.OneToManyIntermodalResponse { // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalResponseUnknownFailure|null[0]
+    final class OneToManyIntermodalResponseUnknownFailure : org.litote.motis.client.client/OperationResponseUnknownFailure, org.litote.motis.client.client/RoutingClient.OneToManyIntermodalResponse { // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalResponseUnknownFailure|null[0]
         constructor <init>(kotlin/Int, io.ktor.http/Headers = ...) // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalResponseUnknownFailure.<init>|<init>(kotlin.Int;io.ktor.http.Headers){}[0]
 
         final val headers // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalResponseUnknownFailure.headers|{}headers[0]
@@ -1949,7 +1949,7 @@ abstract interface org.litote.motis.client.client/RoutingClient { // org.litote.
         }
     }
 
-    final class OneToManyPostResponseFailure : org.litote.motis.client.client/RoutingClient.OneToManyPostResponse { // org.litote.motis.client.client/RoutingClient.OneToManyPostResponseFailure|null[0]
+    final class OneToManyPostResponseFailure : org.litote.motis.client.client/OperationResponseFailure<org.litote.motis.client.model/Error>, org.litote.motis.client.client/RoutingClient.OneToManyPostResponse { // org.litote.motis.client.client/RoutingClient.OneToManyPostResponseFailure|null[0]
         constructor <init>(org.litote.motis.client.model/Error, io.ktor.http/Headers = ...) // org.litote.motis.client.client/RoutingClient.OneToManyPostResponseFailure.<init>|<init>(org.litote.motis.client.model.Error;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/RoutingClient.OneToManyPostResponseFailure.body|{}body[0]
@@ -1978,7 +1978,7 @@ abstract interface org.litote.motis.client.client/RoutingClient { // org.litote.
         }
     }
 
-    final class OneToManyPostResponseSuccess : org.litote.motis.client.client/RoutingClient.OneToManyPostResponse { // org.litote.motis.client.client/RoutingClient.OneToManyPostResponseSuccess|null[0]
+    final class OneToManyPostResponseSuccess : org.litote.motis.client.client/OperationResponseSuccess<kotlin.collections/List<org.litote.motis.client.model/Duration>>, org.litote.motis.client.client/RoutingClient.OneToManyPostResponse { // org.litote.motis.client.client/RoutingClient.OneToManyPostResponseSuccess|null[0]
         constructor <init>(kotlin.collections/List<org.litote.motis.client.model/Duration>, io.ktor.http/Headers = ...) // org.litote.motis.client.client/RoutingClient.OneToManyPostResponseSuccess.<init>|<init>(kotlin.collections.List<org.litote.motis.client.model.Duration>;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/RoutingClient.OneToManyPostResponseSuccess.body|{}body[0]
@@ -2009,7 +2009,7 @@ abstract interface org.litote.motis.client.client/RoutingClient { // org.litote.
         }
     }
 
-    final class OneToManyPostResponseUnknownFailure : org.litote.motis.client.client/RoutingClient.OneToManyPostResponse { // org.litote.motis.client.client/RoutingClient.OneToManyPostResponseUnknownFailure|null[0]
+    final class OneToManyPostResponseUnknownFailure : org.litote.motis.client.client/OperationResponseUnknownFailure, org.litote.motis.client.client/RoutingClient.OneToManyPostResponse { // org.litote.motis.client.client/RoutingClient.OneToManyPostResponseUnknownFailure|null[0]
         constructor <init>(kotlin/Int, io.ktor.http/Headers = ...) // org.litote.motis.client.client/RoutingClient.OneToManyPostResponseUnknownFailure.<init>|<init>(kotlin.Int;io.ktor.http.Headers){}[0]
 
         final val headers // org.litote.motis.client.client/RoutingClient.OneToManyPostResponseUnknownFailure.headers|{}headers[0]
@@ -2038,7 +2038,7 @@ abstract interface org.litote.motis.client.client/RoutingClient { // org.litote.
         }
     }
 
-    final class OneToManyResponseFailure : org.litote.motis.client.client/RoutingClient.OneToManyResponse { // org.litote.motis.client.client/RoutingClient.OneToManyResponseFailure|null[0]
+    final class OneToManyResponseFailure : org.litote.motis.client.client/OperationResponseFailure<org.litote.motis.client.model/Error>, org.litote.motis.client.client/RoutingClient.OneToManyResponse { // org.litote.motis.client.client/RoutingClient.OneToManyResponseFailure|null[0]
         constructor <init>(org.litote.motis.client.model/Error, io.ktor.http/Headers = ...) // org.litote.motis.client.client/RoutingClient.OneToManyResponseFailure.<init>|<init>(org.litote.motis.client.model.Error;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/RoutingClient.OneToManyResponseFailure.body|{}body[0]
@@ -2067,7 +2067,7 @@ abstract interface org.litote.motis.client.client/RoutingClient { // org.litote.
         }
     }
 
-    final class OneToManyResponseSuccess : org.litote.motis.client.client/RoutingClient.OneToManyResponse { // org.litote.motis.client.client/RoutingClient.OneToManyResponseSuccess|null[0]
+    final class OneToManyResponseSuccess : org.litote.motis.client.client/OperationResponseSuccess<kotlin.collections/List<org.litote.motis.client.model/Duration>>, org.litote.motis.client.client/RoutingClient.OneToManyResponse { // org.litote.motis.client.client/RoutingClient.OneToManyResponseSuccess|null[0]
         constructor <init>(kotlin.collections/List<org.litote.motis.client.model/Duration>, io.ktor.http/Headers = ...) // org.litote.motis.client.client/RoutingClient.OneToManyResponseSuccess.<init>|<init>(kotlin.collections.List<org.litote.motis.client.model.Duration>;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/RoutingClient.OneToManyResponseSuccess.body|{}body[0]
@@ -2098,7 +2098,7 @@ abstract interface org.litote.motis.client.client/RoutingClient { // org.litote.
         }
     }
 
-    final class OneToManyResponseUnknownFailure : org.litote.motis.client.client/RoutingClient.OneToManyResponse { // org.litote.motis.client.client/RoutingClient.OneToManyResponseUnknownFailure|null[0]
+    final class OneToManyResponseUnknownFailure : org.litote.motis.client.client/OperationResponseUnknownFailure, org.litote.motis.client.client/RoutingClient.OneToManyResponse { // org.litote.motis.client.client/RoutingClient.OneToManyResponseUnknownFailure|null[0]
         constructor <init>(kotlin/Int, io.ktor.http/Headers = ...) // org.litote.motis.client.client/RoutingClient.OneToManyResponseUnknownFailure.<init>|<init>(kotlin.Int;io.ktor.http.Headers){}[0]
 
         final val headers // org.litote.motis.client.client/RoutingClient.OneToManyResponseUnknownFailure.headers|{}headers[0]
@@ -2176,7 +2176,7 @@ abstract interface org.litote.motis.client.client/RoutingClient { // org.litote.
         }
     }
 
-    final class PlanResponseFailure : org.litote.motis.client.client/RoutingClient.PlanResponse { // org.litote.motis.client.client/RoutingClient.PlanResponseFailure|null[0]
+    final class PlanResponseFailure : org.litote.motis.client.client/OperationResponseFailure<org.litote.motis.client.model/Error>, org.litote.motis.client.client/RoutingClient.PlanResponse { // org.litote.motis.client.client/RoutingClient.PlanResponseFailure|null[0]
         constructor <init>(org.litote.motis.client.model/Error, io.ktor.http/Headers = ...) // org.litote.motis.client.client/RoutingClient.PlanResponseFailure.<init>|<init>(org.litote.motis.client.model.Error;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/RoutingClient.PlanResponseFailure.body|{}body[0]
@@ -2205,7 +2205,7 @@ abstract interface org.litote.motis.client.client/RoutingClient { // org.litote.
         }
     }
 
-    final class PlanResponseSuccess : org.litote.motis.client.client/RoutingClient.PlanResponse { // org.litote.motis.client.client/RoutingClient.PlanResponseSuccess|null[0]
+    final class PlanResponseSuccess : org.litote.motis.client.client/OperationResponseSuccess<org.litote.motis.client.client/RoutingClient.PlanResponseBody>, org.litote.motis.client.client/RoutingClient.PlanResponse { // org.litote.motis.client.client/RoutingClient.PlanResponseSuccess|null[0]
         constructor <init>(org.litote.motis.client.client/RoutingClient.PlanResponseBody, io.ktor.http/Headers = ...) // org.litote.motis.client.client/RoutingClient.PlanResponseSuccess.<init>|<init>(org.litote.motis.client.client.RoutingClient.PlanResponseBody;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/RoutingClient.PlanResponseSuccess.body|{}body[0]
@@ -2234,7 +2234,7 @@ abstract interface org.litote.motis.client.client/RoutingClient { // org.litote.
         }
     }
 
-    final class PlanResponseUnknownFailure : org.litote.motis.client.client/RoutingClient.PlanResponse { // org.litote.motis.client.client/RoutingClient.PlanResponseUnknownFailure|null[0]
+    final class PlanResponseUnknownFailure : org.litote.motis.client.client/OperationResponseUnknownFailure, org.litote.motis.client.client/RoutingClient.PlanResponse { // org.litote.motis.client.client/RoutingClient.PlanResponseUnknownFailure|null[0]
         constructor <init>(kotlin/Int, io.ktor.http/Headers = ...) // org.litote.motis.client.client/RoutingClient.PlanResponseUnknownFailure.<init>|<init>(kotlin.Int;io.ktor.http.Headers){}[0]
 
         final val headers // org.litote.motis.client.client/RoutingClient.PlanResponseUnknownFailure.headers|{}headers[0]
@@ -2263,7 +2263,7 @@ abstract interface org.litote.motis.client.client/RoutingClient { // org.litote.
         }
     }
 
-    sealed class OneToAllResponse { // org.litote.motis.client.client/RoutingClient.OneToAllResponse|null[0]
+    sealed class OneToAllResponse : org.litote.motis.client.client/OperationResponse<org.litote.motis.client.model/Reachable> { // org.litote.motis.client.client/RoutingClient.OneToAllResponse|null[0]
         abstract val headers // org.litote.motis.client.client/RoutingClient.OneToAllResponse.headers|{}headers[0]
             abstract fun <get-headers>(): io.ktor.http/Headers // org.litote.motis.client.client/RoutingClient.OneToAllResponse.headers.<get-headers>|<get-headers>(){}[0]
 
@@ -2273,7 +2273,7 @@ abstract interface org.litote.motis.client.client/RoutingClient { // org.litote.
         }
     }
 
-    sealed class OneToManyIntermodalPostResponse { // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalPostResponse|null[0]
+    sealed class OneToManyIntermodalPostResponse : org.litote.motis.client.client/OperationResponse<org.litote.motis.client.model/OneToManyIntermodalResponse> { // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalPostResponse|null[0]
         abstract val headers // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalPostResponse.headers|{}headers[0]
             abstract fun <get-headers>(): io.ktor.http/Headers // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalPostResponse.headers.<get-headers>|<get-headers>(){}[0]
 
@@ -2283,7 +2283,7 @@ abstract interface org.litote.motis.client.client/RoutingClient { // org.litote.
         }
     }
 
-    sealed class OneToManyIntermodalResponse { // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalResponse|null[0]
+    sealed class OneToManyIntermodalResponse : org.litote.motis.client.client/OperationResponse<org.litote.motis.client.model/OneToManyIntermodalResponse> { // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalResponse|null[0]
         abstract val headers // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalResponse.headers|{}headers[0]
             abstract fun <get-headers>(): io.ktor.http/Headers // org.litote.motis.client.client/RoutingClient.OneToManyIntermodalResponse.headers.<get-headers>|<get-headers>(){}[0]
 
@@ -2293,7 +2293,7 @@ abstract interface org.litote.motis.client.client/RoutingClient { // org.litote.
         }
     }
 
-    sealed class OneToManyPostResponse { // org.litote.motis.client.client/RoutingClient.OneToManyPostResponse|null[0]
+    sealed class OneToManyPostResponse : org.litote.motis.client.client/OperationResponse<kotlin.collections/List<org.litote.motis.client.model/Duration>> { // org.litote.motis.client.client/RoutingClient.OneToManyPostResponse|null[0]
         abstract val headers // org.litote.motis.client.client/RoutingClient.OneToManyPostResponse.headers|{}headers[0]
             abstract fun <get-headers>(): io.ktor.http/Headers // org.litote.motis.client.client/RoutingClient.OneToManyPostResponse.headers.<get-headers>|<get-headers>(){}[0]
 
@@ -2303,7 +2303,7 @@ abstract interface org.litote.motis.client.client/RoutingClient { // org.litote.
         }
     }
 
-    sealed class OneToManyResponse { // org.litote.motis.client.client/RoutingClient.OneToManyResponse|null[0]
+    sealed class OneToManyResponse : org.litote.motis.client.client/OperationResponse<kotlin.collections/List<org.litote.motis.client.model/Duration>> { // org.litote.motis.client.client/RoutingClient.OneToManyResponse|null[0]
         abstract val headers // org.litote.motis.client.client/RoutingClient.OneToManyResponse.headers|{}headers[0]
             abstract fun <get-headers>(): io.ktor.http/Headers // org.litote.motis.client.client/RoutingClient.OneToManyResponse.headers.<get-headers>|<get-headers>(){}[0]
 
@@ -2313,7 +2313,7 @@ abstract interface org.litote.motis.client.client/RoutingClient { // org.litote.
         }
     }
 
-    sealed class PlanResponse { // org.litote.motis.client.client/RoutingClient.PlanResponse|null[0]
+    sealed class PlanResponse : org.litote.motis.client.client/OperationResponse<org.litote.motis.client.client/RoutingClient.PlanResponseBody> { // org.litote.motis.client.client/RoutingClient.PlanResponse|null[0]
         abstract val headers // org.litote.motis.client.client/RoutingClient.PlanResponse.headers|{}headers[0]
             abstract fun <get-headers>(): io.ktor.http/Headers // org.litote.motis.client.client/RoutingClient.PlanResponse.headers.<get-headers>|<get-headers>(){}[0]
 
@@ -2347,7 +2347,7 @@ abstract interface org.litote.motis.client.client/TimetableClient { // org.litot
         }
     }
 
-    final class RefreshItineraryPostResponseFailure : org.litote.motis.client.client/TimetableClient.RefreshItineraryPostResponse { // org.litote.motis.client.client/TimetableClient.RefreshItineraryPostResponseFailure|null[0]
+    final class RefreshItineraryPostResponseFailure : org.litote.motis.client.client/OperationResponseFailure<org.litote.motis.client.model/Error>, org.litote.motis.client.client/TimetableClient.RefreshItineraryPostResponse { // org.litote.motis.client.client/TimetableClient.RefreshItineraryPostResponseFailure|null[0]
         constructor <init>(org.litote.motis.client.model/Error, io.ktor.http/Headers = ...) // org.litote.motis.client.client/TimetableClient.RefreshItineraryPostResponseFailure.<init>|<init>(org.litote.motis.client.model.Error;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/TimetableClient.RefreshItineraryPostResponseFailure.body|{}body[0]
@@ -2376,7 +2376,7 @@ abstract interface org.litote.motis.client.client/TimetableClient { // org.litot
         }
     }
 
-    final class RefreshItineraryPostResponseSuccess : org.litote.motis.client.client/TimetableClient.RefreshItineraryPostResponse { // org.litote.motis.client.client/TimetableClient.RefreshItineraryPostResponseSuccess|null[0]
+    final class RefreshItineraryPostResponseSuccess : org.litote.motis.client.client/OperationResponseSuccess<org.litote.motis.client.model/Itinerary>, org.litote.motis.client.client/TimetableClient.RefreshItineraryPostResponse { // org.litote.motis.client.client/TimetableClient.RefreshItineraryPostResponseSuccess|null[0]
         constructor <init>(org.litote.motis.client.model/Itinerary, io.ktor.http/Headers = ...) // org.litote.motis.client.client/TimetableClient.RefreshItineraryPostResponseSuccess.<init>|<init>(org.litote.motis.client.model.Itinerary;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/TimetableClient.RefreshItineraryPostResponseSuccess.body|{}body[0]
@@ -2405,7 +2405,7 @@ abstract interface org.litote.motis.client.client/TimetableClient { // org.litot
         }
     }
 
-    final class RefreshItineraryPostResponseUnknownFailure : org.litote.motis.client.client/TimetableClient.RefreshItineraryPostResponse { // org.litote.motis.client.client/TimetableClient.RefreshItineraryPostResponseUnknownFailure|null[0]
+    final class RefreshItineraryPostResponseUnknownFailure : org.litote.motis.client.client/OperationResponseUnknownFailure, org.litote.motis.client.client/TimetableClient.RefreshItineraryPostResponse { // org.litote.motis.client.client/TimetableClient.RefreshItineraryPostResponseUnknownFailure|null[0]
         constructor <init>(kotlin/Int, io.ktor.http/Headers = ...) // org.litote.motis.client.client/TimetableClient.RefreshItineraryPostResponseUnknownFailure.<init>|<init>(kotlin.Int;io.ktor.http.Headers){}[0]
 
         final val headers // org.litote.motis.client.client/TimetableClient.RefreshItineraryPostResponseUnknownFailure.headers|{}headers[0]
@@ -2434,7 +2434,7 @@ abstract interface org.litote.motis.client.client/TimetableClient { // org.litot
         }
     }
 
-    final class RefreshItineraryResponseFailure : org.litote.motis.client.client/TimetableClient.RefreshItineraryResponse { // org.litote.motis.client.client/TimetableClient.RefreshItineraryResponseFailure|null[0]
+    final class RefreshItineraryResponseFailure : org.litote.motis.client.client/OperationResponseFailure<org.litote.motis.client.model/Error>, org.litote.motis.client.client/TimetableClient.RefreshItineraryResponse { // org.litote.motis.client.client/TimetableClient.RefreshItineraryResponseFailure|null[0]
         constructor <init>(org.litote.motis.client.model/Error, io.ktor.http/Headers = ...) // org.litote.motis.client.client/TimetableClient.RefreshItineraryResponseFailure.<init>|<init>(org.litote.motis.client.model.Error;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/TimetableClient.RefreshItineraryResponseFailure.body|{}body[0]
@@ -2463,7 +2463,7 @@ abstract interface org.litote.motis.client.client/TimetableClient { // org.litot
         }
     }
 
-    final class RefreshItineraryResponseSuccess : org.litote.motis.client.client/TimetableClient.RefreshItineraryResponse { // org.litote.motis.client.client/TimetableClient.RefreshItineraryResponseSuccess|null[0]
+    final class RefreshItineraryResponseSuccess : org.litote.motis.client.client/OperationResponseSuccess<org.litote.motis.client.model/Itinerary>, org.litote.motis.client.client/TimetableClient.RefreshItineraryResponse { // org.litote.motis.client.client/TimetableClient.RefreshItineraryResponseSuccess|null[0]
         constructor <init>(org.litote.motis.client.model/Itinerary, io.ktor.http/Headers = ...) // org.litote.motis.client.client/TimetableClient.RefreshItineraryResponseSuccess.<init>|<init>(org.litote.motis.client.model.Itinerary;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/TimetableClient.RefreshItineraryResponseSuccess.body|{}body[0]
@@ -2492,7 +2492,7 @@ abstract interface org.litote.motis.client.client/TimetableClient { // org.litot
         }
     }
 
-    final class RefreshItineraryResponseUnknownFailure : org.litote.motis.client.client/TimetableClient.RefreshItineraryResponse { // org.litote.motis.client.client/TimetableClient.RefreshItineraryResponseUnknownFailure|null[0]
+    final class RefreshItineraryResponseUnknownFailure : org.litote.motis.client.client/OperationResponseUnknownFailure, org.litote.motis.client.client/TimetableClient.RefreshItineraryResponse { // org.litote.motis.client.client/TimetableClient.RefreshItineraryResponseUnknownFailure|null[0]
         constructor <init>(kotlin/Int, io.ktor.http/Headers = ...) // org.litote.motis.client.client/TimetableClient.RefreshItineraryResponseUnknownFailure.<init>|<init>(kotlin.Int;io.ktor.http.Headers){}[0]
 
         final val headers // org.litote.motis.client.client/TimetableClient.RefreshItineraryResponseUnknownFailure.headers|{}headers[0]
@@ -2558,7 +2558,7 @@ abstract interface org.litote.motis.client.client/TimetableClient { // org.litot
         }
     }
 
-    final class StoptimesResponseFailure : org.litote.motis.client.client/TimetableClient.StoptimesResponse { // org.litote.motis.client.client/TimetableClient.StoptimesResponseFailure|null[0]
+    final class StoptimesResponseFailure : org.litote.motis.client.client/OperationResponseFailure<org.litote.motis.client.model/Error>, org.litote.motis.client.client/TimetableClient.StoptimesResponse { // org.litote.motis.client.client/TimetableClient.StoptimesResponseFailure|null[0]
         constructor <init>(org.litote.motis.client.model/Error, io.ktor.http/Headers = ...) // org.litote.motis.client.client/TimetableClient.StoptimesResponseFailure.<init>|<init>(org.litote.motis.client.model.Error;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/TimetableClient.StoptimesResponseFailure.body|{}body[0]
@@ -2587,7 +2587,7 @@ abstract interface org.litote.motis.client.client/TimetableClient { // org.litot
         }
     }
 
-    final class StoptimesResponseSuccess : org.litote.motis.client.client/TimetableClient.StoptimesResponse { // org.litote.motis.client.client/TimetableClient.StoptimesResponseSuccess|null[0]
+    final class StoptimesResponseSuccess : org.litote.motis.client.client/OperationResponseSuccess<org.litote.motis.client.client/TimetableClient.StoptimesResponseBody>, org.litote.motis.client.client/TimetableClient.StoptimesResponse { // org.litote.motis.client.client/TimetableClient.StoptimesResponseSuccess|null[0]
         constructor <init>(org.litote.motis.client.client/TimetableClient.StoptimesResponseBody, io.ktor.http/Headers = ...) // org.litote.motis.client.client/TimetableClient.StoptimesResponseSuccess.<init>|<init>(org.litote.motis.client.client.TimetableClient.StoptimesResponseBody;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/TimetableClient.StoptimesResponseSuccess.body|{}body[0]
@@ -2616,7 +2616,7 @@ abstract interface org.litote.motis.client.client/TimetableClient { // org.litot
         }
     }
 
-    final class StoptimesResponseUnknownFailure : org.litote.motis.client.client/TimetableClient.StoptimesResponse { // org.litote.motis.client.client/TimetableClient.StoptimesResponseUnknownFailure|null[0]
+    final class StoptimesResponseUnknownFailure : org.litote.motis.client.client/OperationResponseUnknownFailure, org.litote.motis.client.client/TimetableClient.StoptimesResponse { // org.litote.motis.client.client/TimetableClient.StoptimesResponseUnknownFailure|null[0]
         constructor <init>(kotlin/Int, io.ktor.http/Headers = ...) // org.litote.motis.client.client/TimetableClient.StoptimesResponseUnknownFailure.<init>|<init>(kotlin.Int;io.ktor.http.Headers){}[0]
 
         final val headers // org.litote.motis.client.client/TimetableClient.StoptimesResponseUnknownFailure.headers|{}headers[0]
@@ -2645,7 +2645,7 @@ abstract interface org.litote.motis.client.client/TimetableClient { // org.litot
         }
     }
 
-    final class TripResponseFailure : org.litote.motis.client.client/TimetableClient.TripResponse { // org.litote.motis.client.client/TimetableClient.TripResponseFailure|null[0]
+    final class TripResponseFailure : org.litote.motis.client.client/OperationResponseFailure<org.litote.motis.client.model/Error>, org.litote.motis.client.client/TimetableClient.TripResponse { // org.litote.motis.client.client/TimetableClient.TripResponseFailure|null[0]
         constructor <init>(org.litote.motis.client.model/Error, io.ktor.http/Headers = ...) // org.litote.motis.client.client/TimetableClient.TripResponseFailure.<init>|<init>(org.litote.motis.client.model.Error;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/TimetableClient.TripResponseFailure.body|{}body[0]
@@ -2674,7 +2674,7 @@ abstract interface org.litote.motis.client.client/TimetableClient { // org.litot
         }
     }
 
-    final class TripResponseSuccess : org.litote.motis.client.client/TimetableClient.TripResponse { // org.litote.motis.client.client/TimetableClient.TripResponseSuccess|null[0]
+    final class TripResponseSuccess : org.litote.motis.client.client/OperationResponseSuccess<org.litote.motis.client.model/Itinerary>, org.litote.motis.client.client/TimetableClient.TripResponse { // org.litote.motis.client.client/TimetableClient.TripResponseSuccess|null[0]
         constructor <init>(org.litote.motis.client.model/Itinerary, io.ktor.http/Headers = ...) // org.litote.motis.client.client/TimetableClient.TripResponseSuccess.<init>|<init>(org.litote.motis.client.model.Itinerary;io.ktor.http.Headers){}[0]
 
         final val body // org.litote.motis.client.client/TimetableClient.TripResponseSuccess.body|{}body[0]
@@ -2703,7 +2703,7 @@ abstract interface org.litote.motis.client.client/TimetableClient { // org.litot
         }
     }
 
-    final class TripResponseUnknownFailure : org.litote.motis.client.client/TimetableClient.TripResponse { // org.litote.motis.client.client/TimetableClient.TripResponseUnknownFailure|null[0]
+    final class TripResponseUnknownFailure : org.litote.motis.client.client/OperationResponseUnknownFailure, org.litote.motis.client.client/TimetableClient.TripResponse { // org.litote.motis.client.client/TimetableClient.TripResponseUnknownFailure|null[0]
         constructor <init>(kotlin/Int, io.ktor.http/Headers = ...) // org.litote.motis.client.client/TimetableClient.TripResponseUnknownFailure.<init>|<init>(kotlin.Int;io.ktor.http.Headers){}[0]
 
         final val headers // org.litote.motis.client.client/TimetableClient.TripResponseUnknownFailure.headers|{}headers[0]
@@ -2732,7 +2732,7 @@ abstract interface org.litote.motis.client.client/TimetableClient { // org.litot
         }
     }
 
-    sealed class RefreshItineraryPostResponse { // org.litote.motis.client.client/TimetableClient.RefreshItineraryPostResponse|null[0]
+    sealed class RefreshItineraryPostResponse : org.litote.motis.client.client/OperationResponse<org.litote.motis.client.model/Itinerary> { // org.litote.motis.client.client/TimetableClient.RefreshItineraryPostResponse|null[0]
         abstract val headers // org.litote.motis.client.client/TimetableClient.RefreshItineraryPostResponse.headers|{}headers[0]
             abstract fun <get-headers>(): io.ktor.http/Headers // org.litote.motis.client.client/TimetableClient.RefreshItineraryPostResponse.headers.<get-headers>|<get-headers>(){}[0]
 
@@ -2742,7 +2742,7 @@ abstract interface org.litote.motis.client.client/TimetableClient { // org.litot
         }
     }
 
-    sealed class RefreshItineraryResponse { // org.litote.motis.client.client/TimetableClient.RefreshItineraryResponse|null[0]
+    sealed class RefreshItineraryResponse : org.litote.motis.client.client/OperationResponse<org.litote.motis.client.model/Itinerary> { // org.litote.motis.client.client/TimetableClient.RefreshItineraryResponse|null[0]
         abstract val headers // org.litote.motis.client.client/TimetableClient.RefreshItineraryResponse.headers|{}headers[0]
             abstract fun <get-headers>(): io.ktor.http/Headers // org.litote.motis.client.client/TimetableClient.RefreshItineraryResponse.headers.<get-headers>|<get-headers>(){}[0]
 
@@ -2752,7 +2752,7 @@ abstract interface org.litote.motis.client.client/TimetableClient { // org.litot
         }
     }
 
-    sealed class StoptimesResponse { // org.litote.motis.client.client/TimetableClient.StoptimesResponse|null[0]
+    sealed class StoptimesResponse : org.litote.motis.client.client/OperationResponse<org.litote.motis.client.client/TimetableClient.StoptimesResponseBody> { // org.litote.motis.client.client/TimetableClient.StoptimesResponse|null[0]
         abstract val headers // org.litote.motis.client.client/TimetableClient.StoptimesResponse.headers|{}headers[0]
             abstract fun <get-headers>(): io.ktor.http/Headers // org.litote.motis.client.client/TimetableClient.StoptimesResponse.headers.<get-headers>|<get-headers>(){}[0]
 
@@ -2762,7 +2762,7 @@ abstract interface org.litote.motis.client.client/TimetableClient { // org.litot
         }
     }
 
-    sealed class TripResponse { // org.litote.motis.client.client/TimetableClient.TripResponse|null[0]
+    sealed class TripResponse : org.litote.motis.client.client/OperationResponse<org.litote.motis.client.model/Itinerary> { // org.litote.motis.client.client/TimetableClient.TripResponse|null[0]
         abstract val headers // org.litote.motis.client.client/TimetableClient.TripResponse.headers|{}headers[0]
             abstract fun <get-headers>(): io.ktor.http/Headers // org.litote.motis.client.client/TimetableClient.TripResponse.headers.<get-headers>|<get-headers>(){}[0]
 
@@ -2771,6 +2771,26 @@ abstract interface org.litote.motis.client.client/TimetableClient { // org.litot
             final fun serializer(kotlin/Array<out kotlinx.serialization/KSerializer<*>>...): kotlinx.serialization/KSerializer<*> // org.litote.motis.client.client/TimetableClient.TripResponse.Companion.serializer|serializer(kotlin.Array<out|kotlinx.serialization.KSerializer<*>>...){}[0]
         }
     }
+}
+
+sealed interface <#A: out kotlin/Any?> org.litote.motis.client.client/OperationResponse { // org.litote.motis.client.client/OperationResponse|null[0]
+    abstract val headers // org.litote.motis.client.client/OperationResponse.headers|{}headers[0]
+        abstract fun <get-headers>(): io.ktor.http/Headers // org.litote.motis.client.client/OperationResponse.headers.<get-headers>|<get-headers>(){}[0]
+}
+
+sealed interface <#A: out kotlin/Any?> org.litote.motis.client.client/OperationResponseFailure { // org.litote.motis.client.client/OperationResponseFailure|null[0]
+    abstract val body // org.litote.motis.client.client/OperationResponseFailure.body|{}body[0]
+        abstract fun <get-body>(): #A // org.litote.motis.client.client/OperationResponseFailure.body.<get-body>|<get-body>(){}[0]
+}
+
+sealed interface <#A: out kotlin/Any?> org.litote.motis.client.client/OperationResponseSuccess : org.litote.motis.client.client/OperationResponse<#A> { // org.litote.motis.client.client/OperationResponseSuccess|null[0]
+    abstract val body // org.litote.motis.client.client/OperationResponseSuccess.body|{}body[0]
+        abstract fun <get-body>(): #A // org.litote.motis.client.client/OperationResponseSuccess.body.<get-body>|<get-body>(){}[0]
+}
+
+sealed interface org.litote.motis.client.client/OperationResponseUnknownFailure { // org.litote.motis.client.client/OperationResponseUnknownFailure|null[0]
+    abstract val statusCode // org.litote.motis.client.client/OperationResponseUnknownFailure.statusCode|{}statusCode[0]
+        abstract fun <get-statusCode>(): kotlin/Int // org.litote.motis.client.client/OperationResponseUnknownFailure.statusCode.<get-statusCode>|<get-statusCode>(){}[0]
 }
 
 final class org.litote.motis.client.client/ClientConfiguration { // org.litote.motis.client.client/ClientConfiguration|null[0]

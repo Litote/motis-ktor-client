@@ -97,82 +97,91 @@ public interface TimetableClient {
   }
 
   @Serializable
-  public sealed class TripResponse {
-    public abstract val headers: Headers
+  public sealed class TripResponse : OperationResponse<Itinerary> {
+    abstract override val headers: Headers
   }
 
   @Serializable
   public data class TripResponseSuccess(
-    public val body: Itinerary,
+    override val body: Itinerary,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : TripResponse()
+  ) : TripResponse(),
+      OperationResponseSuccess<Itinerary>
 
   @Serializable
   public data class TripResponseFailure(
-    public val body: Error,
+    override val body: Error,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : TripResponse()
+  ) : TripResponse(),
+      OperationResponseFailure<Error>
 
   @Serializable
   public data class TripResponseUnknownFailure(
-    public val statusCode: Int,
+    override val statusCode: Int,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : TripResponse()
+  ) : TripResponse(),
+      OperationResponseUnknownFailure
 
   @Serializable
-  public sealed class RefreshItineraryResponse {
-    public abstract val headers: Headers
+  public sealed class RefreshItineraryResponse : OperationResponse<Itinerary> {
+    abstract override val headers: Headers
   }
 
   @Serializable
   public data class RefreshItineraryResponseSuccess(
-    public val body: Itinerary,
+    override val body: Itinerary,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : RefreshItineraryResponse()
+  ) : RefreshItineraryResponse(),
+      OperationResponseSuccess<Itinerary>
 
   @Serializable
   public data class RefreshItineraryResponseFailure(
-    public val body: Error,
+    override val body: Error,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : RefreshItineraryResponse()
+  ) : RefreshItineraryResponse(),
+      OperationResponseFailure<Error>
 
   @Serializable
   public data class RefreshItineraryResponseUnknownFailure(
-    public val statusCode: Int,
+    override val statusCode: Int,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : RefreshItineraryResponse()
+  ) : RefreshItineraryResponse(),
+      OperationResponseUnknownFailure
 
   @Serializable
-  public sealed class RefreshItineraryPostResponse {
-    public abstract val headers: Headers
+  public sealed class RefreshItineraryPostResponse : OperationResponse<Itinerary> {
+    abstract override val headers: Headers
   }
 
   @Serializable
   public data class RefreshItineraryPostResponseSuccess(
-    public val body: Itinerary,
+    override val body: Itinerary,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : RefreshItineraryPostResponse()
+  ) : RefreshItineraryPostResponse(),
+      OperationResponseSuccess<Itinerary>
 
   @Serializable
   public data class RefreshItineraryPostResponseFailure(
-    public val body: Error,
+    override val body: Error,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : RefreshItineraryPostResponse()
+  ) : RefreshItineraryPostResponse(),
+      OperationResponseFailure<Error>
 
   @Serializable
   public data class RefreshItineraryPostResponseUnknownFailure(
-    public val statusCode: Int,
+    override val statusCode: Int,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : RefreshItineraryPostResponse()
+  ) : RefreshItineraryPostResponse(),
+      OperationResponseUnknownFailure
 
   @Serializable
   public data class StoptimesResponseBody(
@@ -183,30 +192,33 @@ public interface TimetableClient {
   )
 
   @Serializable
-  public sealed class StoptimesResponse {
-    public abstract val headers: Headers
+  public sealed class StoptimesResponse : OperationResponse<StoptimesResponseBody> {
+    abstract override val headers: Headers
   }
 
   @Serializable
   public data class StoptimesResponseSuccess(
-    public val body: StoptimesResponseBody,
+    override val body: StoptimesResponseBody,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : StoptimesResponse()
+  ) : StoptimesResponse(),
+      OperationResponseSuccess<StoptimesResponseBody>
 
   @Serializable
   public data class StoptimesResponseFailure(
-    public val body: Error,
+    override val body: Error,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : StoptimesResponse()
+  ) : StoptimesResponse(),
+      OperationResponseFailure<Error>
 
   @Serializable
   public data class StoptimesResponseUnknownFailure(
-    public val statusCode: Int,
+    override val statusCode: Int,
     @Transient
     override val headers: Headers = Headers.Empty,
-  ) : StoptimesResponse()
+  ) : StoptimesResponse(),
+      OperationResponseUnknownFailure
 }
 
 public fun TimetableClient(configuration: ClientConfiguration = defaultClientConfiguration): TimetableClient = DefaultTimetableClient(configuration)
