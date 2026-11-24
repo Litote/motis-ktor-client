@@ -21,7 +21,9 @@ To update the API, replace `src/commonMain/openapi/motis.yaml` with a newer MOTI
 and commit the changes of `generated/`. Do not edit `generated/` by hand: the build overwrites it.
 
 The generator version (`generator` in `gradle/libs.versions.toml`) also selects its published version catalog
-(`openapi`), which provides the Kotlin, Ktor, kotlinx-serialization and coroutines versions.
+(`openapi`), which provides the Kotlin, Ktor, kotlinx-serialization and coroutines versions. The test dependencies
+(`ktor-client-mock`, `kotlinx-coroutines-test`…) have no version in `gradle/libs.versions.toml`: they follow the same
+versions, through the Ktor and coroutines BOMs, so that the tests run against the published dependencies.
 
 ## Tests
 

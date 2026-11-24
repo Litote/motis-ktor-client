@@ -1,14 +1,13 @@
 [versions]
-coroutines = "1.11.0"
 dokka = "2.3.0"
 generator = "0.10.0"
-ktor = "3.6.1"
 
 [plugins]
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 generator = { id = "org.litote.openapi.ktor.client.generator.gradle", version.ref = "generator" }
 
 [libraries]
-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
-ktor-client-engine-defaults = { module = "io.ktor:ktor-client-engine-defaults", version.ref = "ktor" }
-ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor" }
+# ktor and coroutines versions come from the generator catalog (openapi), through their BOMs: see build.gradle.kts
+coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test" }
+ktor-client-engine-defaults = { module = "io.ktor:ktor-client-engine-defaults" }
+ktor-client-mock = { module = "io.ktor:ktor-client-mock" }
