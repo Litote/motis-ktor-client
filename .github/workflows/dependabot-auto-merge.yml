@@ -17,10 +17,12 @@ jobs:
     with:
       ecosystems: gradle
       # Gradle plugins and the build tools run in the build without being called: they stay manual.
+      # The generator also changes the public API (api/*.api): its release type is chosen when merging.
       exclude-dependencies: >-
         org.gradle.toolchains.foojay-resolver-convention*,
         org.jetbrains.dokka*,
-        dokka
+        dokka,
+        org.litote.openapi.ktor.client.generator*
     secrets:
       RELEASE_PLEASE_APP_ID: ${{ secrets.RELEASE_PLEASE_APP_ID }}
       RELEASE_PLEASE_APP_PRIVATE_KEY: ${{ secrets.RELEASE_PLEASE_APP_PRIVATE_KEY }}
