@@ -154,6 +154,7 @@ jobs:
     needs: [release-please, publish]
     if: needs.release-please.outputs.release_created == 'true' || github.event_name == 'workflow_dispatch'
     permissions:
+      actions: read
       pages: write
       id-token: write
     environment:
@@ -182,6 +183,26 @@ jobs:
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           path: build/dokka/html
+
+      # The artifact API is eventually consistent: deploy-pages may not see an artifact uploaded
+      # a moment earlier and fails without retrying, so wait until it is listed.
+      - name: Wait for the Pages artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          for attempt in $(seq 1 12); do
+            count=$(gh api "repos/$REPOSITORY/actions/runs/$RUN_ID/artifacts?name=github-pages" --jq '.total_count')
+            if [ "$count" -gt 0 ]; then
+              echo "Pages artifact listed after $attempt attempt(s)"
+              exit 0
+            fi
+            echo "Pages artifact not listed yet (attempt $attempt/12), retrying in 5s"
+            sleep 5
+          done
+          echo "::error::Pages artifact still not listed after 60s"
+          exit 1
 
       - name: Deploy to GitHub Pages
         id: deployment
