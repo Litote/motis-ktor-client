@@ -56,6 +56,10 @@ val generateLibraryInfo = tasks.register("generateLibraryInfo") {
     }
 }
 
+// ktor and coroutines versions of the test dependencies: the ones of the generator catalog, also used by commonMain
+val ktorBom = dependencies.platform("io.ktor:ktor-bom:${openapi.versions.ktor.get()}")
+val coroutinesBom = dependencies.platform("org.jetbrains.kotlinx:kotlinx-coroutines-bom:${openapi.versions.coroutines.get()}")
+
 kotlin {
     jvmToolchain(25)
     explicitApi()
@@ -75,6 +79,8 @@ kotlin {
             associateWith(main)
             defaultSourceSet.dependencies {
                 implementation(kotlin("test-junit5"))
+                implementation(ktorBom)
+                implementation(coroutinesBom)
                 implementation(libs.ktor.client.engine.defaults)
                 implementation(libs.coroutines.test)
             }
@@ -110,6 +116,8 @@ kotlin {
         }
         commonTest.dependencies {
             implementation(kotlin("test"))
+            implementation(ktorBom)
+            implementation(coroutinesBom)
             implementation(libs.ktor.client.mock)
             implementation(libs.coroutines.test)
         }
