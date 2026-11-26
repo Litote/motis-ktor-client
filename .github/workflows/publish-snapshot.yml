@@ -22,14 +22,14 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
 
-      - uses: Litote/ci/.github/actions/setup-gradle@15172a08495ba5ce96b92c224ede2d102174803f # v0.12.0
+      - uses: Litote/ci/.github/actions/setup-gradle@de40fbf39509c6fa5816a9f2a5991af658aacc66 # v0.16.0
         with:
           cache-encryption-key: ${{ secrets.GRADLE_ENCRYPTION_KEY }}
 
       - name: Override JVM args
         run: sed -i 's/^org.gradle.jvmargs=.*/org.gradle.jvmargs=-Xmx6g -Dfile.encoding=UTF-8/' gradle.properties
 
-      - uses: Litote/ci/.github/actions/maven-central-publish@15172a08495ba5ce96b92c224ede2d102174803f # v0.12.0
+      - uses: Litote/ci/.github/actions/maven-central-publish@de40fbf39509c6fa5816a9f2a5991af658aacc66 # v0.16.0
         with:
           gradle-args: publishToMavenCentral --max-workers=2
           maven-central-username: ${{ secrets.MAVEN_CENTRAL_USERNAME }}

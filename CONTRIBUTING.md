@@ -109,6 +109,8 @@ dependency verification metadata:
 The generated client in `generated/motis` is committed: after a change of the OpenAPI specification or of the
 generator version, commit the regenerated files with the change (the CI checks they are up to date).
 For a Dependabot generator update, `dependabot-gradle-verification.yml` commits them with the verification metadata.
+It also commits the `api/` dumps whose changes only add non abstract members: a removed or changed declaration, or an
+abstract member, is left to a review, and the ABI check of the CI fails.
 
 ## Release
 
